@@ -3,6 +3,8 @@
 #include <cmath>
 #include <fstream>
 #include <stdio.h>
+#include <string>
+#include <cstdlib>
 
 using namespace std;
 
@@ -15,12 +17,19 @@ void getGCF();
 void getLCM();
 void simpleRad();
 void cleanfiles();
+void geometryFunc();
+void powersFunc();
 
 int main()
 {
     int option;
     cout << "What would you like to do?: " << endl;
-    cout << "Basic Calculatons (1), Other (2), List everything I can do (3): ";
+    cout << "[1] Basic Calculations (+, -, /, *)" << endl;
+    cout << "[2] Geometry/Angles (Area, Perimeter, Volume)" << endl;
+    cout << "[3] Powers" << endl;
+    cout << "[4] Other Functions" << endl;
+    cout << "[0] List of What I Can Do" << endl;
+
     cin >> option;
 
     switch(option)
@@ -30,27 +39,19 @@ int main()
         break;
 
     case 2:
-        otherFunc();
+        geometryFunc();
         break;
 
     case 3:
+        powersFunc();
+        break;
+
+    case 4:
+        otherFunc();
+        break;
+
+    case 0:
         listofFunc();
-        cout << "What would you like to do?: " << endl;
-        cout << "Basic Calculatons (1), Other (2): ";
-        cin >> option;
-        if(option == 1)
-        {
-            basicSolve();
-        }
-        else if(option == 2)
-        {
-            otherFunc();
-        }
-        else
-        {
-            cout << endl << "Not an option, see all options here:" << endl;
-            listofFunc();
-        }
         break;
     default:
         cout << endl << "That isn't an option" << endl;
@@ -67,11 +68,12 @@ void basicSolve()
     double x, y;
     double result;
 
+    printf("BASIC FUNCTIONS \n");
     printf("What would you like to do? \n");
-    cout << "1: Add" << endl;
-    cout << "2: Subtract" << endl;
-    cout << "3: Multiply" << endl;
-    cout << "4: Divide" << endl;
+    cout << "[1] Add" << endl;
+    cout << "[2] Subtract" << endl;
+    cout << "[3] Multiply" << endl;
+    cout << "[4] Divide" << endl;
 
     cin >> op;
     cout << "Enter first number: ";
@@ -82,21 +84,29 @@ void basicSolve()
     switch(op)
     {
     case 1:
+        printf("ADDITION \n");
         result = x + y;
         printf("Your answer is %f", result);
         break;
+
     case 2:
+        printf("SUBTRACTION \n");
         result = x - y;
         printf("Your answer is %f", result);
         break;
+
     case 3:
+        printf("MULTIPLICATION \n");
         result = x * y;
         printf("Your answer is %f", result);
         break;
+
     case 4:
+        printf("DIVISION \n");
         result = x / y;
         printf("Your answer is %f", result);
         break;
+
     default:
         cout << "Error: input error" << endl;
     }
@@ -105,45 +115,31 @@ void basicSolve()
 void otherFunc()
 {
     double dx, dy;
-    int ix, iy;
+    int ix, iy, count;
+    int x = 0;
     int stored, storedTwo, storedThree;
-    double danswer;
+    double danswer, average;
     int ianswer;
     int option;
 
     printf("What would you like to do: \n");
-    cout << "1: Power of" << endl;
-    cout << "2: Smaller Number" << endl;
-    cout << "3: Larger Number" << endl;
-    cout << "4: Prime Factor" << endl;
-    cout << "5: Return Squareroot of Sum of Roots" << endl;
-    cout << "6: Remainder of" << endl;
-    cout << "7: Round the Number" << endl;
-    cout << "8: Squareroot" << endl;
-    cout << "9: Simplify Squareroot" << endl;
-    cout << "10: Is Number Prime?" << endl;
-    cout << "11: All Factors of" << endl;
-    cout << "12: Find GCF/GCD of" << endl;
-    cout << "13: Find LCM of" << endl;
-    cout << "14: Find Tangent of" << endl;
-    cout << "15: Find Cosine of" << endl;
-    cout << "16: Find Sine of" << endl;
+    cout << "[1] Smaller Number" << endl;
+    cout << "[2] Larger Number" << endl;
+    cout << "[3] Prime Factor" << endl;
+    cout << "[4] Remainder of" << endl;
+    cout << "[5] Round the Number" << endl;
+    cout << "[6] Is Number Prime?" << endl;
+    cout << "[7] All Factors of" << endl;
+    cout << "[8] Find GCF/GCD of" << endl;
+    cout << "[9] Find LCM of" << endl;
+    cout << "[10] Average of" << endl;
 
     cin >> option;
 
     switch(option)
     {
     case 1:
-        cout << "Enter first number: ";
-        cin >> ix;
-        cout << "Enter second numer: ";
-        cin >> iy;
-
-        ianswer = pow(ix, iy);
-        printf("Your answer is %d", ianswer);
-        break;
-
-    case 2:
+        printf("SMALLER OF \n");
         cout << "Enter first number: ";
         cin >> dx;
         cout << "Enter second numer: ";
@@ -153,7 +149,8 @@ void otherFunc()
         printf("Your answer is %f", danswer);
         break;
 
-    case 3:
+    case 2:
+        printf("LARGER OF \n");
         cout << "Enter first number: ";
         cin >> dx;
         cout << "Enter second numer: ";
@@ -163,7 +160,8 @@ void otherFunc()
         printf("Your answer is %f", danswer);
         break;
 
-    case 4:
+    case 3:
+        printf("PRIME FACTOR \n");
         cout << "Enter Number: ";
         cin >> ix;
         while(ix % 2 == 0)
@@ -185,16 +183,8 @@ void otherFunc()
         }
         break;
 
-    case 5:
-        cout << "Enter first number: ";
-        cin >> dx;
-        cout << "Enter second numer: ";
-        cin >> dy;
-        danswer = hypot(dy, dx);
-        printf("Your answer is %f", danswer);
-        break;
-
-    case 6:
+    case 4:
+        printf("REMAINDER OF \n");
         cout << "Enter first number: ";
         cin >> dx;
         cout << "Enter second numer: ";
@@ -203,59 +193,48 @@ void otherFunc()
         printf("Your answer is %f", danswer);
         break;
 
-    case 7:
+    case 5:
+        printf("ROUNDED OF \n");
         cout << "Enter number: ";
         cin >> dx;
         danswer = round(dx);
         printf("Your answer is %f", danswer);
         break;
 
-    case 8:
-        cout << "Enter number: ";
-        cin >> dx;
-        danswer = sqrt(dx);
-        printf("Your answer is %f", danswer);
-        break;
-
-    case 9:
-        simpleRad();
-        break;
-
-    case 10:
+    case 6:
+        printf("IS IT PRIME? \n");
         primeNumber();
         break;
 
-    case 11:
+    case 7:
+        printf("FACTORS OF \n");
         getFactors();
         break;
 
-    case 12:
+    case 8:
+        printf("FIND GCF \n");
         getGCF();
         break;
 
-    case 13:
+    case 9:
+        printf("FIND LCM \n");
         getLCM();
         break;
 
-    case 14:
-        cout << "Enter number: ";
-        cin >> dx;
-        danswer = tan(dx);
-        printf("The tangent of %f is %f", dx, danswer);
-        break;
+    case 10:
+        printf("GET AVERAGE \n");
+        cout << "How many numbers?" << endl;
+        cin >> count;
 
-    case 15:
-        cout << "Enter number: ";
-        cin >> dx;
-        danswer = cos(dx);
-        printf("The cosine of %f is %f", dx, danswer);
-        break;
-
-    case 16:
-        cout << "Enter number: ";
-        cin >> dx;
-        danswer = sin(dx);
-        printf("The sine of %f is %f", dx, danswer);
+        while(x < count)
+        {
+            cout << "Enter Number: ";
+            cin >> dx;
+            danswer += dx;
+            x++;
+        }
+        average = danswer / count;
+        cout << "The average is: " << average << endl;
         break;
 
     default:
@@ -266,23 +245,45 @@ void otherFunc()
 
 void listofFunc()
 {
+    cout << endl;
     cout << "<!-- START OF LIST --!>" << endl;
-    cout << "BASIC FUNCTIONS: " << endl;
-    cout << "1: Add" << endl;
-    cout << "2: Subtract" << endl;
-    cout << "3: Multiply" << endl;
-    cout << "4: Divide" << endl;
-    cout << "------------------------" << endl;
-    cout << "OTHER FUNCTIONS" << endl;
-    cout << "1: Power of" << endl;
-    cout << "2: Smaller Number" << endl;
-    cout << "3: Larger Number" << endl;
-    cout << "4: Prime Factor" << endl;
-    cout << "5: Hypotenuse of" << endl;
-    cout << "6: Remainder of" << endl;
-    cout << "7: Round the number" << endl;
-    cout << "8: Squareroot of" << endl;
-    cout << "9: Simplify Square Root" << endl;
+    cout << endl;
+    cout << "<!-- BASIC --!>" << endl;
+    cout << "[1] Add" << endl;
+    cout << "[2] Subtract" << endl;
+    cout << "[3] Multiply" << endl;
+    cout << "[4] Divide" << endl;
+    cout << endl;
+    cout << "<!-- GEOMETRY AND ANGLES --!>" << endl;
+    cout << "[1] Area of: " << endl;
+    cout << "[2] Perimeter of: " << endl;
+    cout << "[3] Volume of: " << endl;
+    cout << "[4] Circumference" << endl;
+    cout << "[5] Hypotenuse of: " << endl;
+    cout << "[6] Find Tangent of" << endl;
+    cout << "[7] Find Cosine of" << endl;
+    cout << "[8] Find Sine of" << endl;
+    cout << endl;
+    cout << "<!-- POWERS --!>" << endl;
+    cout << "[1] Power of" << endl;
+    cout << "[2] Square of" << endl;
+    cout << "[3] Square Root of" << endl;
+    cout << "[4] Simplify Square Root of" << endl;
+    cout << "[5] Cube of" << endl;
+    cout << endl;
+    cout << "<!-- OTHER/UNORGANIZED YET --!>" << endl;
+    cout << "[1] Smaller Number" << endl;
+    cout << "[2] Larger Number" << endl;
+    cout << "[3] Prime Factor" << endl;
+    cout << "[4] Remainder of" << endl;
+    cout << "[5] Round the Number" << endl;
+    cout << "[6] Is Number Prime?" << endl;
+    cout << "[7] All Factors of" << endl;
+    cout << "[8] Find GCF/GCD of" << endl;
+    cout << "[9] Find LCM of" << endl;
+    cout << "[10] Find Average of" << endl;
+    cout << endl;
+
 }
 
 void primeNumber()
@@ -401,6 +402,456 @@ void simpleRad()
         }
     n = n2 / (final * final);
     printf("\nThe answer is: %d√%d", final, n);
+}
+
+void geometryFunc()
+{
+    double firstDouble, secondDouble, thirdDouble, doubleAnswer;
+    int optionChose, subOption;
+    string stringVar = "";
+    double piNum = 3.1415926535;
+
+    cout << "GEOMETRY/ANGLES OPTIONS:" << endl;
+    cout << "[1] Area of: " << endl;
+    cout << "[2] Perimeter of: " << endl;
+    cout << "[3] Volume of: " << endl;
+    cout << "[4] Circumference" << endl;
+    cout << "[5] Hypotenuse of: " << endl;
+    cout << "[6] Find Tangent of" << endl;
+    cout << "[7] Find Cosine of" << endl;
+    cout << "[8] Find Sine of" << endl;
+
+    cin >> optionChose;
+
+    switch(optionChose)
+    {
+    case 1:
+        cout << "AREA OF: " << endl;
+        cout << "What shape do you want the area of?: " << endl;
+        cout << "[1] Square" << endl;
+        cout << "[2] Rectangle" << endl;
+        cout << "[3] Triangle" << endl;
+        cout << "[4] Circle" << endl;
+        cout << "[5] Trapezoid" << endl;
+        cout << "[6] Parallelogram" << endl;
+
+        cin >> subOption;
+
+        switch(subOption)
+        {
+        case 1:
+            cout << "AREA OF SQUARE" << endl;
+            cout << "Enter side length: ";
+
+            cin >> firstDouble;
+
+            doubleAnswer = firstDouble * firstDouble;
+
+            printf("The area of your square is: %f\n", doubleAnswer);
+            break;
+
+        case 2:
+            cout << "AREA OF RECTANGLE" << endl;
+
+            cout << "Enter length: ";
+            cin >> firstDouble;
+
+            cout << "Enter width: ";
+            cin >> secondDouble;
+
+            doubleAnswer = firstDouble * secondDouble;
+
+            printf("The area of your rectangle is: %f\n", doubleAnswer);
+            break;
+
+        case 3:
+            cout << "AREA OF TRIANGLE" << endl;
+
+            cout << "Enter base: ";
+            cin >> firstDouble;
+
+            cout << "Enter height: ";
+            cin >> secondDouble;
+
+            doubleAnswer = (firstDouble * secondDouble) / 2;
+
+            printf("The area of your triangle is: %f\n", doubleAnswer);
+            break;
+
+        case 4:
+            cout << "AREA OF CIRCLE" << endl;
+
+            cout << "Enter radius: ";
+            cin >> firstDouble;
+
+            cout << endl << "Pi is going to be 3.1415926535" << endl;
+
+            doubleAnswer = (firstDouble * firstDouble) * piNum;
+
+            printf("The area of your circle is: %f\n", doubleAnswer);
+            break;
+
+        case 5:
+            cout << "AREA OF TRAPEZOID" << endl;
+
+            cout << "Enter base: ";
+            cin >> firstDouble;
+
+            cout << "Enter top: ";
+            cin >> secondDouble;
+
+            cout << "Enter height: ";
+            cin >> thirdDouble;
+
+            doubleAnswer = ((firstDouble + secondDouble)/2) * thirdDouble;
+
+            printf("The area of your rectangle is: %f\n", doubleAnswer);
+            break;
+
+        case 6:
+            cout << "AREA OF PARALLELOGRAM" << endl;
+
+            cout << "Enter base: ";
+            cin >> firstDouble;
+
+            cout << "Enter height: ";
+            cin >> secondDouble;
+
+            doubleAnswer = firstDouble * secondDouble;
+
+            printf("The area of your parallelogram is: %f\n", doubleAnswer);
+            break;
+            break;
+
+        default:
+            cout << "Not an option yet, sorry" << endl;
+        }
+        break;
+
+    case 2:
+        cout << "PERIMETER OF: " << endl;
+        cout << "What shape do you want the perimeter of?: " << endl;
+        cout << "[1] Square" << endl;
+        cout << "[2] Rectangle" << endl;
+        cout << "[3] Triangle" << endl;
+        cout << "[4] Trapezoid" << endl;
+        cout << "[5] Parallelogram" << endl;
+        cout << "[6] Other (infinite addition)" << endl;
+
+        cin >> subOption;
+
+        switch(subOption)
+        {
+        case 1:
+            cout << "PERIMETER OF SQUARE" << endl;
+            cout << "Enter first side length: ";
+
+            cin >> firstDouble;
+
+            doubleAnswer = firstDouble * 4;
+
+            printf("The perimeter of your square is: %f\n", doubleAnswer);
+            break;
+
+        case 2:
+            cout << "PERIMETER OF RECTANGLE" << endl;
+
+            cout << "Enter length: ";
+            cin >> firstDouble;
+
+            cout << "Enter width: ";
+            cin >> secondDouble;
+
+            doubleAnswer = (firstDouble * 2) + (secondDouble * 2);
+
+            printf("The perimeter of your rectangle is: %f\n", doubleAnswer);
+            break;
+
+        case 3:
+            cout << "PERIMETER OF TRIANGLE" << endl;
+
+            cout << "Enter side 1: ";
+            cin >> firstDouble;
+
+            cout << "Enter side 2: ";
+            cin >> secondDouble;
+
+            cout << "Enter side 3: ";
+            cin >> thirdDouble;
+
+            doubleAnswer = firstDouble + secondDouble + thirdDouble;
+
+            printf("The perimeter of your triangle is: %f\n", doubleAnswer);
+            break;
+
+        case 4:
+            cout << "PERIMETER OF TRAPEZOID" << endl;
+
+            cout << "Enter base: ";
+            cin >> firstDouble;
+
+            cout << "Enter top: ";
+            cin >> secondDouble;
+
+            cout << "Enter sides: ";
+            cin >> thirdDouble;
+
+            doubleAnswer = firstDouble + secondDouble + (thirdDouble * 2);
+
+            printf("The perimeter of your trapezoid is: %f\n", doubleAnswer);
+            break;
+
+        case 5:
+            cout << "PERIMETER OF PARALLELOGRAM" << endl;
+
+            cout << "Enter base: ";
+            cin >> firstDouble;
+
+            cout << "Enter height: ";
+            cin >> secondDouble;
+
+            doubleAnswer = (firstDouble * 2) + (secondDouble * 2);
+
+            printf("The perimeter of your parallelogram is: %f\n", doubleAnswer);
+            break;
+
+        case 6:
+            cout << "INFINITE ADDITION" << endl;
+            while(stringVar != "quit") {
+                cout << "The current sum is: "<< doubleAnswer << endl;
+                cout << "Continue adding or enter \"quit\" to quit: ";
+                cin >> stringVar;
+                doubleAnswer += atof(stringVar.c_str());
+            }
+            break;
+
+        default:
+            cout << "Sorry not a thing yet" << endl;
+        }
+        break;
+
+    case 3:
+        cout << "VOLUME OF: " << endl;
+        cout << "What shape do you want the volume of?: " << endl;
+        cout << "[1] Cube" << endl;
+        cout << "[2] Rectangular Prism" << endl;
+        cout << "[3] Triangular Prism" << endl;
+        cout << "[4] Sphere" << endl;
+        cout << "[5] Regular Cylinder" << endl;
+        cout << "[6] Regular Cone" << endl;
+        cout << "[7] B * H * D" << endl;
+
+        cin >> subOption;
+
+        switch(subOption)
+        {
+        case 1:
+            cout << "VOLUME OF CUBE" << endl;
+            cout << "Enter side length: ";
+            cin >> firstDouble;
+
+            doubleAnswer = (firstDouble * firstDouble * firstDouble);
+
+            printf("The volume of the cube is: %f\n", doubleAnswer);
+            break;
+
+        case 2:
+            cout << "VOLUME OF RECTANGULAR PRISM" << endl;
+
+            cout << "Enter base length: ";
+            cin >> firstDouble;
+
+            cout << "Enter height length: ";
+            cin >> secondDouble;
+
+            cout << "Enter depth length: ";
+            cin >> thirdDouble;
+
+            doubleAnswer = (firstDouble * secondDouble * thirdDouble);
+            printf("The volume of your rectangular prism is: %f\n", doubleAnswer);
+            break;
+
+        case 3:
+            cout << "VOLUME OF TRIANGULAR PRISM" << endl;
+            cout << "Enter base length: ";
+            cin >> firstDouble;
+
+            cout << "Enter height length: ";
+            cin >> secondDouble;
+
+            cout << "Enter depth length: ";
+            cin >> thirdDouble;
+
+            doubleAnswer = ((firstDouble * secondDouble) / 2) * thirdDouble;
+            printf("The volume of your triangular prism is: %f\n", doubleAnswer);
+            break;
+
+        case 4:
+            cout << "VOLUME OF SPHERE" << endl;
+            cout << "Enter radius: ";
+            cin >> firstDouble;
+
+            doubleAnswer = (4/3) * piNum * (firstDouble * firstDouble * firstDouble);
+            printf("The volume of your sphere is: %f\n", doubleAnswer);
+            break;
+
+        case 5:
+            cout << "VOLUME OF REGULAR CYLINDER" << endl;
+            cout << "Enter radius: ";
+            cin >> firstDouble;
+
+            cout << "Enter height: ";
+            cin >> secondDouble;
+
+            doubleAnswer = secondDouble * piNum * (firstDouble * firstDouble);
+            printf("The volume of your cylinder is: %f\n", doubleAnswer);
+            break;
+
+        case 6:
+            cout << "VOLUME OF REGULAR CONE" << endl;
+            cout << "Enter radius: ";
+            cin >> firstDouble;
+
+            cout << "Enter height: ";
+            cin >> secondDouble;
+
+            doubleAnswer =  (secondDouble * piNum * (firstDouble * firstDouble)) / 3;
+            printf("The volume of your cylinder is: %f\n", doubleAnswer);
+            break;
+
+        case 7:
+            cout << "B * H * D" << endl;
+            cout << "Enter base length: ";
+            cin >> firstDouble;
+
+            cout << "Enter height length: ";
+            cin >> secondDouble;
+
+            cout << "Enter depth length: ";
+            cin >> thirdDouble;
+
+            doubleAnswer = (firstDouble * secondDouble * thirdDouble);
+            printf("The volume of your prism is: %f\n", doubleAnswer);
+            break;
+
+        default:
+            cout << "Sorry not a thing yet" << endl;
+        }
+        break;
+
+    case 4:
+        cout << "CIRCUMFERENCE OF A CIRCLE" << endl;
+        cout << "Enter radius: ";
+        cin >> firstDouble;
+
+        doubleAnswer = 2 * firstDouble * piNum;
+        printf("The circumference of the circle is: %f\n", firstDouble);
+        break;
+
+    case 5:
+        cout << "HYPOTENUSE" << endl;
+        cout << "Enter a: ";
+        cin >> firstDouble;
+        cout << "Enter b: ";
+        cin >> secondDouble;
+        doubleAnswer = hypot(firstDouble, secondDouble);
+        printf("C is %f", doubleAnswer);
+        break;
+
+    case 6:
+        cout << "TANGENT" << endl;
+        cout << "Enter number: ";
+        cin >> firstDouble;
+        doubleAnswer = tan(firstDouble);
+        printf("The tangent of %f is %f", firstDouble, doubleAnswer);
+        break;
+
+    case 7:
+        cout << "COSINE" << endl;
+        cout << "Enter number: ";
+        cin >> firstDouble;
+        doubleAnswer = cos(firstDouble);
+        printf("The cosine of %f is %f", firstDouble, doubleAnswer);
+        break;
+
+    case 8:
+        cout << "SINE" << endl;
+        cout << "Enter number: ";
+        cin >> firstDouble;
+        doubleAnswer = sin(firstDouble);
+        printf("The sine of %f is %f", firstDouble, doubleAnswer);
+        break;
+
+    default:
+        cout << endl << "Error: input error" << endl;
+    }
+}
+
+void powersFunc()
+{
+    int optionChose;
+
+    int firstInt, secondInt, intAnswer;
+    double firstDouble, secondDouble, doubleAnswer;
+
+    cout << "POWERS" << endl;
+    printf("What would you like to do? \n");
+    cout << "[1] Power of" << endl;
+    cout << "[2] Square of" << endl;
+    cout << "[3] Square Root of" << endl;
+    cout << "[4] Simplify Square Root of" << endl;
+    cout << "[5] Cube of" << endl;
+
+    cin >> optionChose;
+
+    switch(optionChose)
+    {
+    case 1:
+        printf("POWER OF \n");
+        cout << "Enter first number: ";
+        cin >> firstInt;
+        cout << "Enter second numer: ";
+        cin >> secondInt;
+
+        intAnswer = pow(firstInt, secondInt);
+        printf("Your answer is %d", intAnswer);
+        break;
+
+    case 2:
+        printf("SQUARE OF\n");
+        cout << "Enter number: ";
+        cin >> firstInt;
+
+        intAnswer = pow(firstInt, 2);
+        printf("Your answer is %d", intAnswer);
+        break;
+
+    case 3:
+        printf("SQUARE ROOT OF \n");
+        cout << "Enter number: ";
+        cin >> firstDouble;
+
+        doubleAnswer = sqrt(firstDouble);
+        printf("Your answer is %f", doubleAnswer);
+        break;
+
+    case 4:
+        printf("SIMPLIFY SQUARE ROOT \n");
+        simpleRad();
+        break;
+
+    case 5:
+        printf("CUBE OF\n");
+        cout << "Enter number: ";
+        cin >> firstInt;
+
+        intAnswer = pow(firstInt, 3);
+        printf("Your answer is %d", intAnswer);
+        break;
+
+    default:
+        cout << "Not an option yet, sorry" << endl;
+    }
 }
 
 void cleanfiles()
