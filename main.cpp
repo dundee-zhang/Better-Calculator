@@ -28,6 +28,7 @@ int main()
     cout << "[2] Geometry/Angles (Area, Perimeter, Volume)" << endl;
     cout << "[3] Powers" << endl;
     cout << "[4] Other Functions" << endl;
+    cout << "[727] Coming Soon" << endl;
     cout << "[0] List of What I Can Do" << endl;
 
     cin >> option;
@@ -48,6 +49,12 @@ int main()
 
     case 4:
         otherFunc();
+        break;
+
+    case 727:
+        cout << "COMING SOON" << endl;
+        cout << "- Surface Area" << endl;
+        cout << "- Whatever stuff I need" << endl;
         break;
 
     case 0:
