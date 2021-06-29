@@ -8,6 +8,15 @@
 
 using namespace std;
 
+class factorialClass
+{
+public:
+    factorialClass(double num);
+    double calculateFactorial();
+private:
+    double startNum;
+};
+
 void basicSolve();
 void otherFunc();
 void listofFunc();
@@ -19,6 +28,8 @@ void simpleRad();
 void cleanfiles();
 void geometryFunc();
 void powersFunc();
+void factorialsFunc();
+void taxFunction();
 
 int main()
 {
@@ -27,7 +38,8 @@ int main()
     cout << "[1] Basic Calculations (+, -, /, *)" << endl;
     cout << "[2] Geometry/Angles (Area, Perimeter, Volume)" << endl;
     cout << "[3] Powers" << endl;
-    cout << "[4] Other Functions" << endl;
+    cout << "[4] Factorials and Related" << endl;
+    cout << "[5] Other Functions" << endl;
     cout << "[727] Coming Soon" << endl;
     cout << "[0] List of What I Can Do" << endl;
 
@@ -48,6 +60,10 @@ int main()
         break;
 
     case 4:
+        factorialsFunc();
+        break;
+
+    case 5:
         otherFunc();
         break;
 
@@ -129,6 +145,7 @@ void otherFunc()
     int ianswer;
     int option;
 
+    cout << "OTHER OPTIONS" << endl;
     printf("What would you like to do: \n");
     cout << "[1] Smaller Number" << endl;
     cout << "[2] Larger Number" << endl;
@@ -140,6 +157,7 @@ void otherFunc()
     cout << "[8] Find GCF/GCD of" << endl;
     cout << "[9] Find LCM of" << endl;
     cout << "[10] Average of" << endl;
+    cout << "[11] Tax calculation" << endl;
 
     cin >> option;
 
@@ -244,6 +262,10 @@ void otherFunc()
         cout << "The average is: " << average << endl;
         break;
 
+    case 11:
+        taxFunction();
+        break;
+
     default:
         cout << endl << "Error: input error" << endl;
     }
@@ -278,6 +300,11 @@ void listofFunc()
     cout << "[4] Simplify Square Root of" << endl;
     cout << "[5] Cube of" << endl;
     cout << endl;
+    cout << "<!-- FACTORIALS --!>" << endl;
+    cout << "[1] Factorial of (Up to 9 for now): " << endl;
+    cout << "[2] Number of Paths in a grid going 2 directions: " << endl;
+    cout << "[3] Choose Notation: " << endl;
+    cout << endl;
     cout << "<!-- OTHER/UNORGANIZED YET --!>" << endl;
     cout << "[1] Smaller Number" << endl;
     cout << "[2] Larger Number" << endl;
@@ -289,6 +316,8 @@ void listofFunc()
     cout << "[8] Find GCF/GCD of" << endl;
     cout << "[9] Find LCM of" << endl;
     cout << "[10] Find Average of" << endl;
+    cout << "[11] Tax calculation" << endl;
+    
     cout << endl;
 
 }
@@ -859,6 +888,147 @@ void powersFunc()
     default:
         cout << "Not an option yet, sorry" << endl;
     }
+}
+
+factorialClass::factorialClass(double num)
+{
+    startNum = num;
+}
+
+double factorialClass::calculateFactorial()
+{
+    double factAnswer = 1.0;
+    while(startNum > 0)
+    {
+        factAnswer *= startNum;
+        startNum -= 1;
+    }
+    return factAnswer;
+}
+
+void factorialsFunc()
+{
+    int choseOption;
+    double factorialNum, factorialNum1, factorialNum2, addedFactorialNum, gridAnswer, cNotationAnswer;
+
+    cout << "FACTORIALS" << endl;
+    cout << "[1] Factorial of (Up to 9 for now): " << endl;
+    cout << "[2] Number of Paths in a grid going 2 directions: " << endl;
+    cout << "[3] Choose Notation: " << endl;
+
+    cin >> choseOption;
+
+    if(choseOption == 1)
+    {
+        cout << "FACTORIAL OF (UP TO 9 FOR NOW)" << endl;
+        cout << "Enter number: ";
+
+        cin >> factorialNum;
+
+        factorialClass factorialObj1(factorialNum);
+        cout << "The factorial of " << factorialNum << " is " << factorialObj1.calculateFactorial() << endl;
+    }
+    else if(choseOption == 2)
+    {
+        cout << "GRID 2 WAY PATHWAYS" << endl;
+
+        cout << "Enter number of spaces on bottom: ";
+        cin >> factorialNum1;
+
+        cout << "Enter number of spaces on side: ";
+        cin >> factorialNum2;
+
+        addedFactorialNum = factorialNum1 + factorialNum2;
+
+        factorialClass factorialSum(addedFactorialNum);
+
+        factorialClass gridObj1(factorialNum1);
+        factorialClass gridObj2(factorialNum2);
+
+        gridAnswer = factorialSum.calculateFactorial() / (gridObj1.calculateFactorial() * gridObj2.calculateFactorial());
+
+        cout << gridAnswer << endl;
+    }
+    else if(choseOption == 3)
+    {
+        cout << "CHOOSE NOTATION" << endl;
+
+        cout << "Enter x (xCy): ";
+        cin >> factorialNum1;
+
+        cout << "Enter y (xCy): ";
+        cin >> factorialNum2;
+
+        addedFactorialNum = factorialNum1 - factorialNum2;
+
+        factorialClass chooseObj1(factorialNum1);
+
+        factorialClass chooseSum(addedFactorialNum);
+        factorialClass chooseObj2(factorialNum2);
+
+        cNotationAnswer = chooseObj1.calculateFactorial() / (chooseSum.calculateFactorial() * chooseObj2.calculateFactorial());
+
+        cout << "The answer of " << factorialNum1 << "C" << factorialNum2 << " is: " << cNotationAnswer << endl;
+    }
+    else
+    {
+        cout << "Not an option yet, sorry" << endl;
+    }
+}
+
+void taxFunction()
+{
+    int optionChose;
+    double taxMulti;
+    double taxPercent;
+    double afterTaxTotal;
+    double moneyAmount;
+
+    cout << "TAXES" << endl;
+    cout << "What would you like to do?: " << endl;
+    cout << "[1] Ontario Tax" << endl;
+    cout << "[2] Custom Amount" << endl;
+    cout << "[0] End" << endl;
+
+    cin >> optionChose;
+
+    if(optionChose == 1)
+    {
+        cout << "ONTARIO TAX" << endl;
+        cout << "Tax is 13%" << endl;
+
+        taxPercent = 13;
+        taxMulti = (taxPercent / 100) + 1;
+
+        cout << "Enter price: ";
+        cin >> moneyAmount;
+
+        afterTaxTotal = taxMulti * moneyAmount;
+
+        cout << "Your total after tax is: " << afterTaxTotal << endl;
+    }
+    else if(optionChose == 2)
+    {
+        cout << "OTHER TAX" << endl;
+        cout << "Tax is unset" << endl;
+
+        cout << "Enter tax percent: ";
+        cin >> taxPercent;
+
+        taxMulti = (taxPercent / 100) + 1;
+
+        cout << "Enter price: ";
+        cin >> moneyAmount;
+
+        afterTaxTotal = taxMulti * moneyAmount;
+
+        cout << "Your total after tax is: " << afterTaxTotal << endl;
+    }
+    else
+    {
+        printf("Not an option yet, sorry\n");
+    }
+
 }
 
 void cleanfiles()
