@@ -69,7 +69,7 @@ int main()
 
     case 727:
         cout << "COMING SOON" << endl;
-        cout << "- Surface Area" << endl;
+        cout << "- Factoring Polynomials and stuff" << endl;
         cout << "- Whatever stuff I need" << endl;
         break;
 
@@ -287,11 +287,12 @@ void listofFunc()
     cout << "[1] Area of: " << endl;
     cout << "[2] Perimeter of: " << endl;
     cout << "[3] Volume of: " << endl;
-    cout << "[4] Circumference" << endl;
-    cout << "[5] Hypotenuse of: " << endl;
-    cout << "[6] Find Tangent of" << endl;
-    cout << "[7] Find Cosine of" << endl;
-    cout << "[8] Find Sine of" << endl;
+    cout << "[4] Surface Area of:" << endl;
+    cout << "[5] Circumference" << endl;
+    cout << "[6] Hypotenuse of: " << endl;
+    cout << "[7] Find Tangent of" << endl;
+    cout << "[8] Find Cosine of" << endl;
+    cout << "[9] Find Sine of" << endl;
     cout << endl;
     cout << "<!-- POWERS --!>" << endl;
     cout << "[1] Power of" << endl;
@@ -317,7 +318,7 @@ void listofFunc()
     cout << "[9] Find LCM of" << endl;
     cout << "[10] Find Average of" << endl;
     cout << "[11] Tax calculation" << endl;
-    
+
     cout << endl;
 
 }
@@ -442,8 +443,9 @@ void simpleRad()
 
 void geometryFunc()
 {
-    double firstDouble, secondDouble, thirdDouble, doubleAnswer;
+    double firstDouble, secondDouble, thirdDouble, doubleAnswer, baseArea;
     int optionChose, subOption;
+    double triangleBase, triangleHeight, triangleArea;
     string stringVar = "";
     double piNum = 3.1415926535;
 
@@ -451,11 +453,12 @@ void geometryFunc()
     cout << "[1] Area of: " << endl;
     cout << "[2] Perimeter of: " << endl;
     cout << "[3] Volume of: " << endl;
-    cout << "[4] Circumference" << endl;
-    cout << "[5] Hypotenuse of: " << endl;
-    cout << "[6] Find Tangent of" << endl;
-    cout << "[7] Find Cosine of" << endl;
-    cout << "[8] Find Sine of" << endl;
+    cout << "[4] Surface Area of:" << endl;
+    cout << "[5] Circumference" << endl;
+    cout << "[6] Hypotenuse of: " << endl;
+    cout << "[7] Find Tangent of" << endl;
+    cout << "[8] Find Cosine of" << endl;
+    cout << "[9] Find Sine of" << endl;
 
     cin >> optionChose;
 
@@ -776,6 +779,158 @@ void geometryFunc()
         break;
 
     case 4:
+        cout << "SURFACE AREA" << endl;
+        cout << "What shape do you want the surface area of?: " << endl;
+        cout << "[1] Cube" << endl;
+        cout << "[2] Rectangular Prism" << endl;
+        cout << "[3] Triangular Prism" << endl;
+        cout << "[4] Right Pyramid" << endl;
+        cout << "[5] Right Cylinder" << endl;
+        cout << "[6] Right Circular Cone" << endl;
+        cout << "[7] Sphere" << endl;
+        cout << "[8] Hemisphere" << endl;
+
+        cin >> subOption;
+
+        switch(subOption)
+        {
+        case 1:
+            cout << "SURFACE AREA OF CUBE" << endl;
+
+            cout << "Enter side length: ";
+            cin >> firstDouble;
+
+            secondDouble = pow(firstDouble, 2);
+            doubleAnswer = 6 * secondDouble;
+
+            printf("The surface area of the cube is %f", doubleAnswer);
+            break;
+
+        case 2:
+            cout << "SURFACE AREA OF RECTANGULAR PRISM" << endl;
+
+            cout << "Enter base length: ";
+            cin >> firstDouble;
+
+            cout << "Enter height length: ";
+            cin >> secondDouble;
+
+            cout << "Enter depth length: ";
+            cin >> thirdDouble;
+
+            doubleAnswer = 2 * ((firstDouble * secondDouble) + (secondDouble * thirdDouble) + (thirdDouble * firstDouble));
+
+            printf("The surface area of the rectangular prism is %f", doubleAnswer);
+            break;
+
+        case 3:
+            cout << "SURFACE AREA OF TRIANGULAR PRISM" << endl;
+
+            cout << "Enter triangle base: ";
+            cin >> triangleBase;
+
+            cout << "Enter triangle height: ";
+            cin >> triangleHeight;
+
+            cout << "Enter first side length: ";
+            cin >> firstDouble;
+
+            cout << "Enter second side length: ";
+            cin >> secondDouble;
+
+            cout << "Enter length/depth: ";
+            cin >> thirdDouble;
+
+            triangleArea = triangleBase * triangleHeight;
+
+            doubleAnswer = triangleArea + ((firstDouble + secondDouble + triangleBase) * thirdDouble);
+
+            printf("The surface area of the triangular prism is %f", doubleAnswer);
+            break;
+
+        case 4:
+            cout << "SURFACE AREA OF RIGHT PYRAMID" << endl;
+
+            cout << "Enter base length: ";
+            cin >> firstDouble;
+
+            cout << "Enter base width: ";
+            cin >> secondDouble;
+
+            cout << "Enter triangle base: ";
+            cin >> triangleBase;
+
+            cout << "Enter triangle height: ";
+            cin >> triangleHeight;
+
+            triangleArea = 2 * (triangleBase * triangleHeight);
+
+            doubleAnswer = (firstDouble * secondDouble) * triangleArea;
+
+            printf("The surface area of the right pyramid is %f", doubleAnswer);
+            break;
+
+        case 5:
+            cout << "SURFACE AREA OF CYLINDER" << endl;
+
+            cout << "Enter radius: ";
+            cin >> firstDouble;
+
+            cout << "Enter height: ";
+            cin >> secondDouble;
+
+            baseArea = 2 * piNum * firstDouble * secondDouble;
+
+            doubleAnswer = baseArea + (2 * piNum * (firstDouble * firstDouble));
+
+            printf("The surface area of the cylinder is %f", doubleAnswer);
+            break;
+
+        case 6:
+            cout << "SURFACE AREA OF CONE" << endl;
+
+            cout << "Enter radius: ";
+            cin >> firstDouble;
+
+            cout << "Enter height: ";
+            cin >> secondDouble;
+
+            baseArea = firstDouble + sqrt((secondDouble * secondDouble) + (firstDouble * firstDouble));
+
+
+            doubleAnswer = piNum * firstDouble * baseArea;
+
+            printf("The surface area of the cone is %f", doubleAnswer);
+                break;
+
+        case 7:
+            cout << "SURFACE AREA OF A SPHERE" << endl;
+
+            cout << "Enter radius: ";
+            cin >> firstDouble;
+
+            doubleAnswer = 4 * piNum * pow(firstDouble, 2);
+
+            printf("The surface area of the sphere is %f", doubleAnswer);
+            break;
+
+        case 8:
+            cout << "SURFACE AREA OF A HEMISPHERE" << endl;
+
+            cout << "Enter radius: ";
+            cin >> firstDouble;
+
+            doubleAnswer = 3 * piNum * pow(firstDouble, 2);
+
+            printf("The surface area of the hemisphere is %f", doubleAnswer);
+            break;
+
+        default:
+            cout << "Sorry, not an option yet" << endl;
+        }
+        break;
+
+    case 5:
         cout << "CIRCUMFERENCE OF A CIRCLE" << endl;
         cout << "Enter radius: ";
         cin >> firstDouble;
@@ -784,7 +939,7 @@ void geometryFunc()
         printf("The circumference of the circle is: %f\n", firstDouble);
         break;
 
-    case 5:
+    case 6:
         cout << "HYPOTENUSE" << endl;
         cout << "Enter a: ";
         cin >> firstDouble;
@@ -794,7 +949,7 @@ void geometryFunc()
         printf("C is %f", doubleAnswer);
         break;
 
-    case 6:
+    case 7:
         cout << "TANGENT" << endl;
         cout << "Enter number: ";
         cin >> firstDouble;
@@ -802,7 +957,7 @@ void geometryFunc()
         printf("The tangent of %f is %f", firstDouble, doubleAnswer);
         break;
 
-    case 7:
+    case 8:
         cout << "COSINE" << endl;
         cout << "Enter number: ";
         cin >> firstDouble;
@@ -810,7 +965,7 @@ void geometryFunc()
         printf("The cosine of %f is %f", firstDouble, doubleAnswer);
         break;
 
-    case 8:
+    case 9:
         cout << "SINE" << endl;
         cout << "Enter number: ";
         cin >> firstDouble;
