@@ -1,7 +1,6 @@
 #include <iostream>
 #include <math.h>
 #include <cmath>
-#include <fstream>
 #include <stdio.h>
 #include <string>
 #include <cstdlib>
@@ -25,7 +24,6 @@ void getFactors();
 void getGCF();
 void getLCM();
 void simpleRad();
-void cleanfiles();
 void geometryFunc();
 void powersFunc();
 void factorialsFunc();
@@ -80,8 +78,6 @@ int main()
         cout << endl << "That isn't an option" << endl;
     }
 
-    cleanfiles();
-
     return 0;
 }
 
@@ -90,13 +86,18 @@ void basicSolve()
     int op;
     double x, y;
     double result;
+    string stringVar;
 
     printf("BASIC FUNCTIONS \n");
     printf("What would you like to do? \n");
     cout << "[1] Add" << endl;
-    cout << "[2] Subtract" << endl;
-    cout << "[3] Multiply" << endl;
-    cout << "[4] Divide" << endl;
+    cout << "[2] Infinite Adding" << endl;
+    cout << "[3] Subtract" << endl;
+    cout << "[4] Infinite Subtracting" << endl;
+    cout << "[5] Multiply" << endl;
+    cout << "[6] Infinite Multiplying" << endl;
+    cout << "[7] Divide" << endl;
+    cout << "[8] Infinite Dividing" << endl;
 
     cin >> op;
     cout << "Enter first number: ";
@@ -111,23 +112,67 @@ void basicSolve()
         result = x + y;
         printf("Your answer is %f", result);
         break;
-
+    
     case 2:
+        printf("INFINITE ADDITION \n");
+        while(stringVar != "quit") 
+        {
+                cout << "The current sum is: "<< x << endl;
+                cout << "Continue adding or enter \"quit\" to quit: ";
+                cin >> stringVar;
+                x += atof(stringVar.c_str());
+        }
+        break;
+
+    case 3:
         printf("SUBTRACTION \n");
         result = x - y;
         printf("Your answer is %f", result);
         break;
 
-    case 3:
+    case 4:
+        printf("INFINITE SUBTRACTION \n");
+        while(stringVar != "quit") 
+        {
+                cout << "The current answer is: "<< x << endl;
+                cout << "Continue adding or enter \"quit\" to quit: ";
+                cin >> stringVar;
+                x -= atof(stringVar.c_str());
+        }
+        break;
+
+    case 5:
         printf("MULTIPLICATION \n");
         result = x * y;
         printf("Your answer is %f", result);
         break;
 
-    case 4:
+    case 6:
+        printf("INFINITE MULTIPLICATION \n");
+        while(stringVar != "quit") 
+        {
+                cout << "The current product is: "<< x << endl;
+                cout << "Continue adding or enter \"quit\" to quit: ";
+                cin >> stringVar;
+                x *= atof(stringVar.c_str());
+        }
+        break;
+
+    case 7:
         printf("DIVISION \n");
         result = x / y;
         printf("Your answer is %f", result);
+        break;
+
+    case 8:
+        printf("INFINITE MULTIPLICATION \n");
+        while(stringVar != "quit") 
+        {
+                cout << "The current answer is: "<< x << endl;
+                cout << "Continue adding or enter \"quit\" to quit: ";
+                cin >> stringVar;
+                x /= atof(stringVar.c_str());
+        }
         break;
 
     default:
@@ -279,9 +324,13 @@ void listofFunc()
     cout << endl;
     cout << "<!-- BASIC --!>" << endl;
     cout << "[1] Add" << endl;
-    cout << "[2] Subtract" << endl;
-    cout << "[3] Multiply" << endl;
-    cout << "[4] Divide" << endl;
+    cout << "[2] Infinite Adding" << endl;
+    cout << "[3] Subtract" << endl;
+    cout << "[4] Infinite Subtracting" << endl;
+    cout << "[5] Multiply" << endl;
+    cout << "[6] Infinite Multiplying" << endl;
+    cout << "[7] Divide" << endl;
+    cout << "[8] Infinite Dividing" << endl;
     cout << endl;
     cout << "<!-- GEOMETRY AND ANGLES --!>" << endl;
     cout << "[1] Area of: " << endl;
@@ -1184,20 +1233,4 @@ void taxFunction()
         printf("Not an option yet, sorry\n");
     }
 
-}
-
-void cleanfiles()
-{
-    ofstream cleanfile("files/file.txt");
-    cleanfile << "";
-
-    ofstream cleanradical("files/radical.txt");
-    cleanradical << "";
-
-    ofstream cleanwhole("files/whole.txt");
-    cleanwhole << "";
-
-    cleanfile.close();
-    cleanradical.close();
-    cleanwhole.close();
 }
