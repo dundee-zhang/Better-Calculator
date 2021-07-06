@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dundeezhang/Development/C++/Better-Calculator/main.cpp
+iostream
+-
+math.h
+-
+cmath
+-
+stdio.h
+-
+string
+-
+cstdlib
+-
+
