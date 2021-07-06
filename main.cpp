@@ -1,5 +1,4 @@
 #include <iostream>
-#include <math.h>
 #include <cmath>
 #include <stdio.h>
 #include <string>
@@ -38,18 +37,18 @@ void geometryFunc();
 void powersFunc();
 void factorialsFunc();
 void taxFunction();
-void solvePolyFactors();
+void solveFactors();
 
 int main()
 {
-    solvePolyFactors();
     int option;
     std::cout << "What would you like to do?: " << std::endl;
     std::cout << "[1] Basic Calculations (+, -, /, *)" << std::endl;
     std::cout << "[2] Geometry/Angles (Area, Perimeter, Volume)" << std::endl;
     std::cout << "[3] Powers" << std::endl;
     std::cout << "[4] Factorials and Related" << std::endl;
-    std::cout << "[5] Other Functions" << std::endl;
+    std::cout << "[5] Factoring" << std::endl;
+    std::cout << "[6] Other Functions" << std::endl;
     std::cout << "[727] Coming Soon" << std::endl;
     std::cout << "[0] List of What I Can Do" << std::endl;
 
@@ -74,6 +73,10 @@ int main()
             break;
 
         case 5:
+            solveFactors();
+            break;
+
+        case 6:
             otherFunc();
             break;
 
@@ -244,15 +247,13 @@ void otherFunc()
     printf("What would you like to do: \n");
     std::cout << "[1] Smaller Number" << std::endl;
     std::cout << "[2] Larger Number" << std::endl;
-    std::cout << "[3] Prime Factor" << std::endl;
-    std::cout << "[4] Remainder of" << std::endl;
-    std::cout << "[5] Round the Number" << std::endl;
-    std::cout << "[6] Is Number Prime?" << std::endl;
-    std::cout << "[7] All Factors of" << std::endl;
-    std::cout << "[8] Find GCF/GCD of" << std::endl;
-    std::cout << "[9] Find LCM of" << std::endl;
-    std::cout << "[10] Average of" << std::endl;
-    std::cout << "[11] Tax calculation" << std::endl;
+    std::cout << "[3] Remainder of" << std::endl;
+    std::cout << "[4] Round the Number" << std::endl;
+    std::cout << "[5] Is Number Prime?" << std::endl;
+    std::cout << "[6] Find GCF/GCD of" << std::endl;
+    std::cout << "[7] Find LCM of" << std::endl;
+    std::cout << "[8] Average of" << std::endl;
+    std::cout << "[9] Tax calculation" << std::endl;
 
     std::cin >> option;
 
@@ -281,29 +282,6 @@ void otherFunc()
             break;
 
         case 3:
-            printf("PRIME FACTOR \n");
-            std::cout << "Enter Number: ";
-            std::cin >> ix;
-            while(ix % 2 == 0)
-            {
-                std::cout << "2 • ";
-                ix = ix / 2;
-            }
-            for(int i = 3; i <= sqrt(ix); i += 2)
-            {
-                while(ix % i ==0)
-                {
-                    std::cout << i << " • ";
-                    ix = ix / i;
-                }
-            }
-            if(ix > 2)
-            {
-                std::cout << ix << '\t';
-            }
-            break;
-
-        case 4:
             printf("REMAINDER OF \n");
             std::cout << "Enter first number: ";
             std::cin >> dx;
@@ -313,7 +291,7 @@ void otherFunc()
             printf("Your answer is %f", danswer);
             break;
 
-        case 5:
+        case 4:
             printf("ROUNDED OF \n");
             std::cout << "Enter number: ";
             std::cin >> dx;
@@ -321,27 +299,22 @@ void otherFunc()
             printf("Your answer is %f", danswer);
             break;
 
-        case 6:
+        case 5:
             printf("IS IT PRIME? \n");
             primeNumber();
             break;
 
-        case 7:
-            printf("FACTORS OF \n");
-            getFactors();
-            break;
-
-        case 8:
+        case 6:
             printf("FIND GCF \n");
             getGCF();
             break;
 
-        case 9:
+        case 7:
             printf("FIND LCM \n");
             getLCM();
             break;
 
-        case 10:
+        case 8:
             printf("GET AVERAGE \n");
             std::cout << "How many numbers?" << std::endl;
             std::cin >> count;
@@ -357,7 +330,7 @@ void otherFunc()
             std::cout << "The average is: " << average << std::endl;
             break;
 
-        case 11:
+        case 9:
             taxFunction();
             break;
 
@@ -405,14 +378,17 @@ void listofFunc()
     std::cout << "[2] Number of Paths in a grid going 2 directions: " << std::endl;
     std::cout << "[3] Choose Notation: " << std::endl;
     std::cout << std::endl;
+    std::cout << "<!-- FACTORING --!>" << std::endl;
+    std::cout << "[1] All Factors of" << std::endl;
+    std::cout << "[2] Prime Factor" << std::endl;
+    std::cout << "[3] Factoring Trinomials" << std::endl;
+    std::cout << std::endl;
     std::cout << "<!-- OTHER/UNORGANIZED YET --!>" << std::endl;
     std::cout << "[1] Smaller Number" << std::endl;
     std::cout << "[2] Larger Number" << std::endl;
-    std::cout << "[3] Prime Factor" << std::endl;
     std::cout << "[4] Remainder of" << std::endl;
     std::cout << "[5] Round the Number" << std::endl;
     std::cout << "[6] Is Number Prime?" << std::endl;
-    std::cout << "[7] All Factors of" << std::endl;
     std::cout << "[8] Find GCF/GCD of" << std::endl;
     std::cout << "[9] Find LCM of" << std::endl;
     std::cout << "[10] Find Average of" << std::endl;
@@ -1312,76 +1288,167 @@ double gcfClass::returnGCF()
     return gcfNumOne;
 }
 
-void solvePolyFactors()
+void solveFactors()
 {
-    std::string perfectYes;
+    int optionDo;
+    std::cout << "FACTORING" << std::endl;
+    std::cout << "[1] All Factors of" << std::endl;
+    std::cout << "[2] Prime Factor" << std::endl;
+    std::cout << "[3] Factoring Trinomials" << std::endl;
+    std::cout << "[0] Exit" << std::endl;
 
-    std::cout << "FACTORING POLYNOMIALS" << std::endl;
-    std::cout << "Is is perfect?: ";
-    std::cin >> perfectYes;
-
-    if(perfectYes == "yes" || perfectYes == "Yes" || perfectYes == "y" || perfectYes == "Y" || perfectYes == "YES")
+    std::cin >> optionDo;
+    if(optionDo == 1)
     {
-        double b, answer;
-
-        std::cout << "Enter b (ax^2 + bx + c): ";
-        std::cin >> b;
-
-        answer = b / 2;
-
-        std::cout << "The factored polynomial is: (x+" << answer << ")^2" << std::endl;
+        printf("FACTORS OF \n");
+        getFactors();
     }
-    else
+    else if(optionDo == 2)
     {
-        int subOption;
-        std::cout << "NOT PERFECT" << std::endl;
-        std::cout << "What would you like to do?: " << std::endl;
-        std::cout << "[1] Factor ax^2 + bx + c" << std::endl;
-        std::cout << "[2] Factor sdf" << std::endl;
-
-        std::cin >> subOption;
-
-        if(subOption == 1)
+        int ix, iy;
+        printf("PRIME FACTOR \n");
+        std::cout << "Enter Number: ";
+        std::cin >> ix;
+        while(ix % 2 == 0)
         {
-            double a, b, c;
+            std::cout << "2 • ";
+            ix = ix / 2;
+        }
+        for(int i = 3; i <= sqrt(ix); i += 2)
+        {
+            while(ix % i ==0)
+            {
+                std::cout << i << " • ";
+                ix = ix / i;
+            }
+        }
+        if(ix > 2)
+        {
+            std::cout << ix << '\t';
+        }
+    }
+    else if(optionDo == 3)
+    {
+        std::string perfectYes;
 
-            std::cout << "Enter a (ax^2 + bx + c): ";
-            std::cin >> a;
+        std::cout << "FACTORING POLYNOMIALS" << std::endl;
+        std::cout << "Is is perfect?: ";
+        std::cin >> perfectYes;
+
+        if(perfectYes == "yes" || perfectYes == "Yes" || perfectYes == "y" || perfectYes == "Y" || perfectYes == "YES")
+        {
+            double b, answer;
 
             std::cout << "Enter b (ax^2 + bx + c): ";
             std::cin >> b;
 
-            std::cout << "Enter c (ax^2 + bx + c): ";
-            std::cin >> c;
+            answer = b / 2;
 
-            double halfB = b / 2;
-            double halfBSquared = pow(halfB, 2);
-
-            double stepThree = (a * c) - halfBSquared;
-            double absStepThree = abs(stepThree);
-            double stepSqrt = sqrt(absStepThree);
-
-            double termBOne = halfB + stepSqrt;
-            double termBTwo = halfB - stepSqrt;
-
-            gcfClass SideOneObj(a, termBOne);
-            SideOneObj.getGCF();
-            double yoo = SideOneObj.returnGCF();
-
-            gcfClass SideTwoObj(a, termBTwo);
-            SideTwoObj.getGCF();
-            double yoo2 = SideTwoObj.returnGCF();
-
-            std::cout << yoo << " " << yoo2 << std::endl;
-
-        }
-        else if(subOption == 2)
-        {
-
+            std::cout << "The factored polynomial is: (x+" << answer << ")^2" << std::endl;
         }
         else
         {
-            std::cout << "Sorry not an option" << std::endl;
+            int subOption;
+            std::cout << "NOT PERFECT" << std::endl;
+            std::cout << "What would you like to do?: " << std::endl;
+            std::cout << "[1] Factor ax^2 + bx + c" << std::endl;
+            std::cout << "[1] Factor ax^2 - bx + c" << std::endl;
+
+
+            std::cin >> subOption;
+
+            if(subOption == 1)
+            {
+                std::cout << "FACTOR Ax^2 + Bx + C" << std::endl;
+                double a, b, c;
+
+                std::cout << "Enter a (ax^2 + bx + c): ";
+                std::cin >> a;
+
+                std::cout << "Enter b (ax^2 + bx + c): ";
+                std::cin >> b;
+
+                std::cout << "Enter c (ax^2 + bx + c): ";
+                std::cin >> c;
+
+                double halfB = b / 2;
+                double halfBSquared = pow(halfB, 2);
+
+                double stepThree = (a * c) - halfBSquared;
+                double absStepThree = abs(stepThree);
+                double stepSqrt = sqrt(absStepThree);
+
+                double termBOne = halfB + stepSqrt;
+                double termBTwo = halfB - stepSqrt;
+
+                gcfClass SideOneObj(a, termBOne);
+                SideOneObj.getGCF();
+                double gcfSideOne = SideOneObj.returnGCF();
+
+                gcfClass SideTwoObj(termBTwo, c);
+                SideTwoObj.getGCF();
+                double gcfSideTwo = SideTwoObj.returnGCF();
+
+                double BracketTwoA = (a / gcfSideOne);
+                double BracketTwoB = (termBOne / gcfSideOne);
+
+                std::cout << "The factor version of this is: ";
+                std::cout << "(" << BracketTwoA << "x" << "+" << BracketTwoB << ")";
+                std::cout << "(" << gcfSideOne << "x" << "+" << gcfSideTwo << ")";
+                std::cout << std::endl;
+            }
+            else if(subOption == 2)
+            {
+                std::cout << "FACTOR Ax^2 - Bx + C" << std::endl;
+                double a, b, c;
+
+                std::cout << "Enter a (ax^2 - bx + c): ";
+                std::cin >> a;
+
+                std::cout << "Enter b (ax^2 - bx + c): ";
+                std::cin >> b;
+
+                std::cout << "Enter c (ax^2 - bx + c): ";
+                std::cin >> c;
+
+                double halfB = b / 2;
+                double halfBSquared = pow(halfB, 2);
+
+                double stepThree = (a * c) - halfBSquared;
+                double absStepThree = abs(stepThree);
+                double stepSqrt = sqrt(absStepThree);
+
+                double termBOne = halfB + stepSqrt;
+                double termBTwo = halfB - stepSqrt;
+
+                gcfClass SideOneObj(a, termBOne);
+                SideOneObj.getGCF();
+                double gcfSideOne = SideOneObj.returnGCF();
+
+                gcfClass SideTwoObj(termBTwo, c);
+                SideTwoObj.getGCF();
+                double gcfSideTwo = SideTwoObj.returnGCF();
+
+                double BracketTwoA = (a / gcfSideOne);
+                double BracketTwoB = (termBOne / gcfSideOne);
+
+                std::cout << "The factor version of this is: ";
+                std::cout << "(" << BracketTwoA << "x" << "-" << BracketTwoB << ")";
+                std::cout << "(" << gcfSideOne << "x" << "-" << gcfSideTwo << ")";
+                std::cout << std::endl;
+            }
+            else
+            {
+                std::cout << "Sorry not an option" << std::endl;
+            }
         }
+    }
+    else if(optionDo == 0)
+    {
+        std::cout << std::endl;
+    }
+    else
+    {
+        std::cout << "Not an option" << std::endl;
     }
 }
