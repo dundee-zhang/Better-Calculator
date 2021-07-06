@@ -42,6 +42,7 @@ void solvePolyFactors();
 
 int main()
 {
+    solvePolyFactors();
     int option;
     std::cout << "What would you like to do?: " << std::endl;
     std::cout << "[1] Basic Calculations (+, -, /, *)" << std::endl;
@@ -1353,6 +1354,25 @@ void solvePolyFactors()
             std::cout << "Enter c (ax^2 + bx + c): ";
             std::cin >> c;
 
+            double halfB = b / 2;
+            double halfBSquared = pow(halfB, 2);
+
+            double stepThree = (a * c) - halfBSquared;
+            double absStepThree = abs(stepThree);
+            double stepSqrt = sqrt(absStepThree);
+
+            double termBOne = halfB + stepSqrt;
+            double termBTwo = halfB - stepSqrt;
+
+            gcfClass SideOneObj(a, termBOne);
+            SideOneObj.getGCF();
+            double yoo = SideOneObj.returnGCF();
+
+            gcfClass SideTwoObj(a, termBTwo);
+            SideTwoObj.getGCF();
+            double yoo2 = SideTwoObj.returnGCF();
+
+            std::cout << yoo << " " << yoo2 << std::endl;
 
         }
         else if(subOption == 2)
