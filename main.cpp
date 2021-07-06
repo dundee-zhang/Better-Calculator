@@ -10,7 +10,7 @@ class factorialClass
 public:
     factorialClass(double num);
     double calculateFactorial();
-    
+
 private:
     double startNum;
 };
@@ -21,7 +21,7 @@ public:
     gcfClass(double x, double y);
     void getGCF();
     double returnGCF();
-    
+
 private:
     double gcfNumOne, gcfNumTwo;
 };
@@ -42,7 +42,6 @@ void solvePolyFactors();
 
 int main()
 {
-    solvePolyFactors();
     int option;
     std::cout << "What would you like to do?: " << std::endl;
     std::cout << "[1] Basic Calculations (+, -, /, *)" << std::endl;
@@ -57,37 +56,37 @@ int main()
 
     switch(option)
     {
-    case 1:
-        basicSolve();
-        break;
+        case 1:
+            basicSolve();
+            break;
 
-    case 2:
-        geometryFunc();
-        break;
+        case 2:
+            geometryFunc();
+            break;
 
-    case 3:
-        powersFunc();
-        break;
+        case 3:
+            powersFunc();
+            break;
 
-    case 4:
-        factorialsFunc();
-        break;
+        case 4:
+            factorialsFunc();
+            break;
 
-    case 5:
-        otherFunc();
-        break;
+        case 5:
+            otherFunc();
+            break;
 
-    case 727:
-        std::cout << "COMING SOON" << std::endl;
-        std::cout << "- Factoring Polynomials and stuff" << std::endl;
-        std::cout << "- Whatever stuff I need" << std::endl;
-        break;
+        case 727:
+            std::cout << "COMING SOON" << std::endl;
+            std::cout << "- Factoring Polynomials and stuff" << std::endl;
+            std::cout << "- Whatever stuff I need" << std::endl;
+            break;
 
-    case 0:
-        listofFunc();
-        break;
-    default:
-        std::cout << std::endl << "That isn't an option" << std::endl;
+        case 0:
+            listofFunc();
+            break;
+        default:
+            std::cout << std::endl << "That isn't an option" << std::endl;
     }
 
     return 0;
@@ -115,120 +114,120 @@ void basicSolve()
 
     switch(op)
     {
-    case 1:
-        std::cout << "Enter first number: ";
-        std::cin >> x;
-        std::cout << "Enter second number: ";
-        std::cin >> y;
-        
-        printf("ADDITION \n");
-        result = x + y;
-        
-        printf("Your answer is %f", result);
-        break;
-    
-    case 2:
-        std::cout << "Enter number: ";
-        std::cin >> x;
-        
-        printf("INFINITE ADDITION \n");
-        while(stringVar != "quit")
-        {
+        case 1:
+            std::cout << "Enter first number: ";
+            std::cin >> x;
+            std::cout << "Enter second number: ";
+            std::cin >> y;
+
+            printf("ADDITION \n");
+            result = x + y;
+
+            printf("Your answer is %f", result);
+            break;
+
+        case 2:
+            std::cout << "Enter number: ";
+            std::cin >> x;
+
+            printf("INFINITE ADDITION \n");
+            while(stringVar != "quit")
+            {
                 std::cout << "The current sum is: "<< x << std::endl;
-                
+
                 std::cout << "Continue adding or enter \"quit\" to quit: ";
                 std::cin >> stringVar;
-                
+
                 x += atof(stringVar.c_str());
-        }
-        break;
+            }
+            break;
 
-    case 3:
-        std::cout << "Enter first number: ";
-        std::cin >> x;
-        std::cout << "Enter second number: ";
-        std::cin >> y;
-        
-        printf("SUBTRACTION \n");
-        result = x - y;
-        
-        printf("Your answer is %f", result);
-        break;
+        case 3:
+            std::cout << "Enter first number: ";
+            std::cin >> x;
+            std::cout << "Enter second number: ";
+            std::cin >> y;
 
-    case 4:
-        std::cout << "Enter first number: ";
-        std::cin >> x;
-        
-        printf("INFINITE SUBTRACTION \n");
-        while(stringVar != "quit")
-        {
+            printf("SUBTRACTION \n");
+            result = x - y;
+
+            printf("Your answer is %f", result);
+            break;
+
+        case 4:
+            std::cout << "Enter first number: ";
+            std::cin >> x;
+
+            printf("INFINITE SUBTRACTION \n");
+            while(stringVar != "quit")
+            {
                 std::cout << "The current answer is: "<< x << std::endl;
-                
+
                 std::cout << "Continue adding or enter \"quit\" to quit: ";
                 std::cin >> stringVar;
-            
+
                 x -= atof(stringVar.c_str());
-        }
-        break;
+            }
+            break;
 
-    case 5:
-        std::cout << "Enter first number: ";
-        std::cin >> x;
-        std::cout << "Enter second numer: ";
-        std::cin >> y;
-        
-        printf("MULTIPLICATION \n");
-        result = x * y;
-        
-        printf("Your answer is %f", result);
-        break;
+        case 5:
+            std::cout << "Enter first number: ";
+            std::cin >> x;
+            std::cout << "Enter second number: ";
+            std::cin >> y;
 
-    case 6:
-        std::cout << "Enter first number: ";
-        std::cin >> x;
+            printf("MULTIPLICATION \n");
+            result = x * y;
 
-        printf("INFINITE MULTIPLICATION \n");
-        while(stringVar != "quit")
-        {
+            printf("Your answer is %f", result);
+            break;
+
+        case 6:
+            std::cout << "Enter first number: ";
+            std::cin >> x;
+
+            printf("INFINITE MULTIPLICATION \n");
+            while(stringVar != "quit")
+            {
                 std::cout << "The current product is: "<< x << std::endl;
-                
+
                 std::cout << "Continue adding or enter \"quit\" to quit: ";
                 std::cin >> stringVar;
-                
+
                 x *= atof(stringVar.c_str());
-        }
-        break;
+            }
+            break;
 
-    case 7:
-        std::cout << "Enter first number: ";
-        std::cin >> x;
-        std::cout << "Enter second numer: ";
-        std::cin >> y;
-        
-        printf("DIVISION \n");
-        result = x / y;
-        
-        printf("Your answer is %f", result);
-        break;
+        case 7:
+            std::cout << "Enter first number: ";
+            std::cin >> x;
+            std::cout << "Enter second number: ";
+            std::cin >> y;
 
-    case 8:
-        std::cout << "Enter first number: ";
-        std::cin >> x;
+            printf("DIVISION \n");
+            result = x / y;
 
-        printf("INFINITE DIVISION \n");
-        while(stringVar != "quit")
-        {
+            printf("Your answer is %f", result);
+            break;
+
+        case 8:
+            std::cout << "Enter first number: ";
+            std::cin >> x;
+
+            printf("INFINITE DIVISION \n");
+            while(stringVar != "quit")
+            {
                 std::cout << "The current answer is: "<< x << std::endl;
-                
+
                 std::cout << "Continue adding or enter \"quit\" to quit: ";
                 std::cin >> stringVar;
-                
-                x /= atof(stringVar.c_str());
-        }
-        break;
 
-    default:
-        std::cout << "Error: input error" << std::endl;
+                x /= atof(stringVar.c_str());
+            }
+            break;
+
+        default:
+            std::cout << "Error: input error" << std::endl;
     }
 }
 
@@ -258,111 +257,111 @@ void otherFunc()
 
     switch(option)
     {
-    case 1:
-        printf("SMALLER OF \n");
-        std::cout << "Enter first number: ";
-        std::cin >> dx;
-        std::cout << "Enter second numer: ";
-        std::cin >> dy;
-
-        danswer = fmin(dx, dy);
-        printf("Your answer is %f", danswer);
-        break;
-
-    case 2:
-        printf("LARGER OF \n");
-        std::cout << "Enter first number: ";
-        std::cin >> dx;
-        std::cout << "Enter second numer: ";
-        std::cin >> dy;
-
-        danswer = fmax(dx, dy);
-        printf("Your answer is %f", danswer);
-        break;
-
-    case 3:
-        printf("PRIME FACTOR \n");
-        std::cout << "Enter Number: ";
-        std::cin >> ix;
-        while(ix % 2 == 0)
-        {
-            std::cout << "2 • ";
-            ix = ix / 2;
-        }
-        for(int i = 3; i <= sqrt(ix); i += 2)
-        {
-            while(ix % i ==0)
-            {
-                std::cout << i << " • ";
-                ix = ix / i;
-            }
-        }
-        if(ix > 2)
-        {
-            std::cout << ix << '\t';
-        }
-        break;
-
-    case 4:
-        printf("REMAINDER OF \n");
-        std::cout << "Enter first number: ";
-        std::cin >> dx;
-        std::cout << "Enter second numer: ";
-        std::cin >> dy;
-        danswer = remainder(dx, dy);
-        printf("Your answer is %f", danswer);
-        break;
-
-    case 5:
-        printf("ROUNDED OF \n");
-        std::cout << "Enter number: ";
-        std::cin >> dx;
-        danswer = round(dx);
-        printf("Your answer is %f", danswer);
-        break;
-
-    case 6:
-        printf("IS IT PRIME? \n");
-        primeNumber();
-        break;
-
-    case 7:
-        printf("FACTORS OF \n");
-        getFactors();
-        break;
-
-    case 8:
-        printf("FIND GCF \n");
-        getGCF();
-        break;
-
-    case 9:
-        printf("FIND LCM \n");
-        getLCM();
-        break;
-
-    case 10:
-        printf("GET AVERAGE \n");
-        std::cout << "How many numbers?" << std::endl;
-        std::cin >> count;
-
-        while(x < count)
-        {
-            std::cout << "Enter Number: ";
+        case 1:
+            printf("SMALLER OF \n");
+            std::cout << "Enter first number: ";
             std::cin >> dx;
-            danswer += dx;
-            x++;
-        }
-        average = danswer / count;
-        std::cout << "The average is: " << average << std::endl;
-        break;
+            std::cout << "Enter second number: ";
+            std::cin >> dy;
 
-    case 11:
-        taxFunction();
-        break;
+            danswer = fmin(dx, dy);
+            printf("Your answer is %f", danswer);
+            break;
 
-    default:
-        std::cout << std::endl << "Error: input error" << std::endl;
+        case 2:
+            printf("LARGER OF \n");
+            std::cout << "Enter first number: ";
+            std::cin >> dx;
+            std::cout << "Enter second number: ";
+            std::cin >> dy;
+
+            danswer = fmax(dx, dy);
+            printf("Your answer is %f", danswer);
+            break;
+
+        case 3:
+            printf("PRIME FACTOR \n");
+            std::cout << "Enter Number: ";
+            std::cin >> ix;
+            while(ix % 2 == 0)
+            {
+                std::cout << "2 • ";
+                ix = ix / 2;
+            }
+            for(int i = 3; i <= sqrt(ix); i += 2)
+            {
+                while(ix % i ==0)
+                {
+                    std::cout << i << " • ";
+                    ix = ix / i;
+                }
+            }
+            if(ix > 2)
+            {
+                std::cout << ix << '\t';
+            }
+            break;
+
+        case 4:
+            printf("REMAINDER OF \n");
+            std::cout << "Enter first number: ";
+            std::cin >> dx;
+            std::cout << "Enter second number: ";
+            std::cin >> dy;
+            danswer = remainder(dx, dy);
+            printf("Your answer is %f", danswer);
+            break;
+
+        case 5:
+            printf("ROUNDED OF \n");
+            std::cout << "Enter number: ";
+            std::cin >> dx;
+            danswer = round(dx);
+            printf("Your answer is %f", danswer);
+            break;
+
+        case 6:
+            printf("IS IT PRIME? \n");
+            primeNumber();
+            break;
+
+        case 7:
+            printf("FACTORS OF \n");
+            getFactors();
+            break;
+
+        case 8:
+            printf("FIND GCF \n");
+            getGCF();
+            break;
+
+        case 9:
+            printf("FIND LCM \n");
+            getLCM();
+            break;
+
+        case 10:
+            printf("GET AVERAGE \n");
+            std::cout << "How many numbers?" << std::endl;
+            std::cin >> count;
+
+            while(x < count)
+            {
+                std::cout << "Enter Number: ";
+                std::cin >> dx;
+                danswer += dx;
+                x++;
+            }
+            average = danswer / count;
+            std::cout << "The average is: " << average << std::endl;
+            break;
+
+        case 11:
+            taxFunction();
+            break;
+
+        default:
+            std::cout << std::endl << "Error: input error" << std::endl;
     }
 
 }
@@ -564,517 +563,516 @@ void geometryFunc()
 
     switch(optionChose)
     {
-    case 1:
-        std::cout << "AREA OF: " << std::endl;
-        std::cout << "What shape do you want the area of?: " << std::endl;
-        std::cout << "[1] Square" << std::endl;
-        std::cout << "[2] Rectangle" << std::endl;
-        std::cout << "[3] Triangle" << std::endl;
-        std::cout << "[4] Circle" << std::endl;
-        std::cout << "[5] Trapezoid" << std::endl;
-        std::cout << "[6] Parallelogram" << std::endl;
-
-        std::cin >> subOption;
-
-        switch(subOption)
-        {
         case 1:
-            std::cout << "AREA OF SQUARE" << std::endl;
-            std::cout << "Enter side length: ";
+            std::cout << "AREA OF: " << std::endl;
+            std::cout << "What shape do you want the area of?: " << std::endl;
+            std::cout << "[1] Square" << std::endl;
+            std::cout << "[2] Rectangle" << std::endl;
+            std::cout << "[3] Triangle" << std::endl;
+            std::cout << "[4] Circle" << std::endl;
+            std::cout << "[5] Trapezoid" << std::endl;
+            std::cout << "[6] Parallelogram" << std::endl;
 
-            std::cin >> firstDouble;
+            std::cin >> subOption;
 
-            doubleAnswer = firstDouble * firstDouble;
+            switch(subOption)
+            {
+                case 1:
+                    std::cout << "AREA OF SQUARE" << std::endl;
+                    std::cout << "Enter side length: ";
 
-            printf("The area of your square is: %f\n", doubleAnswer);
-            break;
+                    std::cin >> firstDouble;
 
-        case 2:
-            std::cout << "AREA OF RECTANGLE" << std::endl;
+                    doubleAnswer = firstDouble * firstDouble;
 
-            std::cout << "Enter length: ";
-            std::cin >> firstDouble;
+                    printf("The area of your square is: %f\n", doubleAnswer);
+                    break;
 
-            std::cout << "Enter width: ";
-            std::cin >> secondDouble;
+                case 2:
+                    std::cout << "AREA OF RECTANGLE" << std::endl;
 
-            doubleAnswer = firstDouble * secondDouble;
+                    std::cout << "Enter length: ";
+                    std::cin >> firstDouble;
 
-            printf("The area of your rectangle is: %f\n", doubleAnswer);
-            break;
+                    std::cout << "Enter width: ";
+                    std::cin >> secondDouble;
 
-        case 3:
-            std::cout << "AREA OF TRIANGLE" << std::endl;
+                    doubleAnswer = firstDouble * secondDouble;
 
-            std::cout << "Enter base: ";
-            std::cin >> firstDouble;
+                    printf("The area of your rectangle is: %f\n", doubleAnswer);
+                    break;
 
-            std::cout << "Enter height: ";
-            std::cin >> secondDouble;
+                case 3:
+                    std::cout << "AREA OF TRIANGLE" << std::endl;
 
-            doubleAnswer = (firstDouble * secondDouble) / 2;
+                    std::cout << "Enter base: ";
+                    std::cin >> firstDouble;
 
-            printf("The area of your triangle is: %f\n", doubleAnswer);
-            break;
+                    std::cout << "Enter height: ";
+                    std::cin >> secondDouble;
 
-        case 4:
-            std::cout << "AREA OF CIRCLE" << std::endl;
+                    doubleAnswer = (firstDouble * secondDouble) / 2;
 
-            std::cout << "Enter radius: ";
-            std::cin >> firstDouble;
+                    printf("The area of your triangle is: %f\n", doubleAnswer);
+                    break;
 
-            std::cout << std::endl << "Pi is going to be 3.1415926535" << std::endl;
+                case 4:
+                    std::cout << "AREA OF CIRCLE" << std::endl;
 
-            doubleAnswer = (firstDouble * firstDouble) * piNum;
+                    std::cout << "Enter radius: ";
+                    std::cin >> firstDouble;
 
-            printf("The area of your circle is: %f\n", doubleAnswer);
-            break;
+                    std::cout << std::endl << "Pi is going to be 3.1415926535" << std::endl;
 
-        case 5:
-            std::cout << "AREA OF TRAPEZOID" << std::endl;
+                    doubleAnswer = (firstDouble * firstDouble) * piNum;
 
-            std::cout << "Enter base: ";
-            std::cin >> firstDouble;
+                    printf("The area of your circle is: %f\n", doubleAnswer);
+                    break;
 
-            std::cout << "Enter top: ";
-            std::cin >> secondDouble;
+                case 5:
+                    std::cout << "AREA OF TRAPEZOID" << std::endl;
 
-            std::cout << "Enter height: ";
-            std::cin >> thirdDouble;
+                    std::cout << "Enter base: ";
+                    std::cin >> firstDouble;
 
-            doubleAnswer = ((firstDouble + secondDouble)/2) * thirdDouble;
+                    std::cout << "Enter top: ";
+                    std::cin >> secondDouble;
 
-            printf("The area of your rectangle is: %f\n", doubleAnswer);
-            break;
+                    std::cout << "Enter height: ";
+                    std::cin >> thirdDouble;
 
-        case 6:
-            std::cout << "AREA OF PARALLELOGRAM" << std::endl;
+                    doubleAnswer = ((firstDouble + secondDouble)/2) * thirdDouble;
 
-            std::cout << "Enter base: ";
-            std::cin >> firstDouble;
+                    printf("The area of your rectangle is: %f\n", doubleAnswer);
+                    break;
 
-            std::cout << "Enter height: ";
-            std::cin >> secondDouble;
+                case 6:
+                    std::cout << "AREA OF PARALLELOGRAM" << std::endl;
 
-            doubleAnswer = firstDouble * secondDouble;
+                    std::cout << "Enter base: ";
+                    std::cin >> firstDouble;
 
-            printf("The area of your parallelogram is: %f\n", doubleAnswer);
-            break;
-            break;
+                    std::cout << "Enter height: ";
+                    std::cin >> secondDouble;
 
-        default:
-            std::cout << "Not an option yet, sorry" << std::endl;
-        }
-        break;
+                    doubleAnswer = firstDouble * secondDouble;
 
-    case 2:
-        std::cout << "PERIMETER OF: " << std::endl;
-        std::cout << "What shape do you want the perimeter of?: " << std::endl;
-        std::cout << "[1] Square" << std::endl;
-        std::cout << "[2] Rectangle" << std::endl;
-        std::cout << "[3] Triangle" << std::endl;
-        std::cout << "[4] Trapezoid" << std::endl;
-        std::cout << "[5] Parallelogram" << std::endl;
-        std::cout << "[6] Other (infinite addition)" << std::endl;
+                    printf("The area of your parallelogram is: %f\n", doubleAnswer);
+                    break;
 
-        std::cin >> subOption;
-
-        switch(subOption)
-        {
-        case 1:
-            std::cout << "PERIMETER OF SQUARE" << std::endl;
-            std::cout << "Enter first side length: ";
-
-            std::cin >> firstDouble;
-
-            doubleAnswer = firstDouble * 4;
-
-            printf("The perimeter of your square is: %f\n", doubleAnswer);
-            break;
-
-        case 2:
-            std::cout << "PERIMETER OF RECTANGLE" << std::endl;
-
-            std::cout << "Enter length: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter width: ";
-            std::cin >> secondDouble;
-
-            doubleAnswer = (firstDouble * 2) + (secondDouble * 2);
-
-            printf("The perimeter of your rectangle is: %f\n", doubleAnswer);
-            break;
-
-        case 3:
-            std::cout << "PERIMETER OF TRIANGLE" << std::endl;
-
-            std::cout << "Enter side 1: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter side 2: ";
-            std::cin >> secondDouble;
-
-            std::cout << "Enter side 3: ";
-            std::cin >> thirdDouble;
-
-            doubleAnswer = firstDouble + secondDouble + thirdDouble;
-
-            printf("The perimeter of your triangle is: %f\n", doubleAnswer);
-            break;
-
-        case 4:
-            std::cout << "PERIMETER OF TRAPEZOID" << std::endl;
-
-            std::cout << "Enter base: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter top: ";
-            std::cin >> secondDouble;
-
-            std::cout << "Enter sides: ";
-            std::cin >> thirdDouble;
-
-            doubleAnswer = firstDouble + secondDouble + (thirdDouble * 2);
-
-            printf("The perimeter of your trapezoid is: %f\n", doubleAnswer);
-            break;
-
-        case 5:
-            std::cout << "PERIMETER OF PARALLELOGRAM" << std::endl;
-
-            std::cout << "Enter base: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter height: ";
-            std::cin >> secondDouble;
-
-            doubleAnswer = (firstDouble * 2) + (secondDouble * 2);
-
-            printf("The perimeter of your parallelogram is: %f\n", doubleAnswer);
-            break;
-
-        case 6:
-            std::cout << "INFINITE ADDITION" << std::endl;
-            while(stringVar != "quit") {
-                std::cout << "The current sum is: "<< doubleAnswer << std::endl;
-                std::cout << "Continue adding or enter \"quit\" to quit: ";
-                std::cin >> stringVar;
-                doubleAnswer += atof(stringVar.c_str());
+                default:
+                    std::cout << "Not an option yet, sorry" << std::endl;
             }
             break;
 
-        default:
-            std::cout << "Sorry not a thing yet" << std::endl;
-        }
-        break;
-
-    case 3:
-        std::cout << "VOLUME OF: " << std::endl;
-        std::cout << "What shape do you want the volume of?: " << std::endl;
-        std::cout << "[1] Cube" << std::endl;
-        std::cout << "[2] Rectangular Prism" << std::endl;
-        std::cout << "[3] Triangular Prism" << std::endl;
-        std::cout << "[4] Sphere" << std::endl;
-        std::cout << "[5] Regular Cylinder" << std::endl;
-        std::cout << "[6] Regular Cone" << std::endl;
-        std::cout << "[7] B * H * D" << std::endl;
-
-        std::cin >> subOption;
-
-        switch(subOption)
-        {
-        case 1:
-            std::cout << "VOLUME OF CUBE" << std::endl;
-            std::cout << "Enter side length: ";
-            std::cin >> firstDouble;
-
-            doubleAnswer = (firstDouble * firstDouble * firstDouble);
-
-            printf("The volume of the cube is: %f\n", doubleAnswer);
-            break;
-
         case 2:
-            std::cout << "VOLUME OF RECTANGULAR PRISM" << std::endl;
+            std::cout << "PERIMETER OF: " << std::endl;
+            std::cout << "What shape do you want the perimeter of?: " << std::endl;
+            std::cout << "[1] Square" << std::endl;
+            std::cout << "[2] Rectangle" << std::endl;
+            std::cout << "[3] Triangle" << std::endl;
+            std::cout << "[4] Trapezoid" << std::endl;
+            std::cout << "[5] Parallelogram" << std::endl;
+            std::cout << "[6] Other (infinite addition)" << std::endl;
 
-            std::cout << "Enter base length: ";
-            std::cin >> firstDouble;
+            std::cin >> subOption;
 
-            std::cout << "Enter height length: ";
-            std::cin >> secondDouble;
+            switch(subOption)
+            {
+                case 1:
+                    std::cout << "PERIMETER OF SQUARE" << std::endl;
+                    std::cout << "Enter first side length: ";
 
-            std::cout << "Enter depth length: ";
-            std::cin >> thirdDouble;
+                    std::cin >> firstDouble;
 
-            doubleAnswer = (firstDouble * secondDouble * thirdDouble);
-            printf("The volume of your rectangular prism is: %f\n", doubleAnswer);
+                    doubleAnswer = firstDouble * 4;
+
+                    printf("The perimeter of your square is: %f\n", doubleAnswer);
+                    break;
+
+                case 2:
+                    std::cout << "PERIMETER OF RECTANGLE" << std::endl;
+
+                    std::cout << "Enter length: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter width: ";
+                    std::cin >> secondDouble;
+
+                    doubleAnswer = (firstDouble * 2) + (secondDouble * 2);
+
+                    printf("The perimeter of your rectangle is: %f\n", doubleAnswer);
+                    break;
+
+                case 3:
+                    std::cout << "PERIMETER OF TRIANGLE" << std::endl;
+
+                    std::cout << "Enter side 1: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter side 2: ";
+                    std::cin >> secondDouble;
+
+                    std::cout << "Enter side 3: ";
+                    std::cin >> thirdDouble;
+
+                    doubleAnswer = firstDouble + secondDouble + thirdDouble;
+
+                    printf("The perimeter of your triangle is: %f\n", doubleAnswer);
+                    break;
+
+                case 4:
+                    std::cout << "PERIMETER OF TRAPEZOID" << std::endl;
+
+                    std::cout << "Enter base: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter top: ";
+                    std::cin >> secondDouble;
+
+                    std::cout << "Enter sides: ";
+                    std::cin >> thirdDouble;
+
+                    doubleAnswer = firstDouble + secondDouble + (thirdDouble * 2);
+
+                    printf("The perimeter of your trapezoid is: %f\n", doubleAnswer);
+                    break;
+
+                case 5:
+                    std::cout << "PERIMETER OF PARALLELOGRAM" << std::endl;
+
+                    std::cout << "Enter base: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height: ";
+                    std::cin >> secondDouble;
+
+                    doubleAnswer = (firstDouble * 2) + (secondDouble * 2);
+
+                    printf("The perimeter of your parallelogram is: %f\n", doubleAnswer);
+                    break;
+
+                case 6:
+                    std::cout << "INFINITE ADDITION" << std::endl;
+                    while(stringVar != "quit") {
+                        std::cout << "The current sum is: "<< doubleAnswer << std::endl;
+                        std::cout << "Continue adding or enter \"quit\" to quit: ";
+                        std::cin >> stringVar;
+                        doubleAnswer += atof(stringVar.c_str());
+                    }
+                    break;
+
+                default:
+                    std::cout << "Sorry not a thing yet" << std::endl;
+            }
             break;
 
         case 3:
-            std::cout << "VOLUME OF TRIANGULAR PRISM" << std::endl;
-            std::cout << "Enter base length: ";
-            std::cin >> firstDouble;
+            std::cout << "VOLUME OF: " << std::endl;
+            std::cout << "What shape do you want the volume of?: " << std::endl;
+            std::cout << "[1] Cube" << std::endl;
+            std::cout << "[2] Rectangular Prism" << std::endl;
+            std::cout << "[3] Triangular Prism" << std::endl;
+            std::cout << "[4] Sphere" << std::endl;
+            std::cout << "[5] Regular Cylinder" << std::endl;
+            std::cout << "[6] Regular Cone" << std::endl;
+            std::cout << "[7] B * H * D" << std::endl;
 
-            std::cout << "Enter height length: ";
-            std::cin >> secondDouble;
+            std::cin >> subOption;
 
-            std::cout << "Enter depth length: ";
-            std::cin >> thirdDouble;
+            switch(subOption)
+            {
+                case 1:
+                    std::cout << "VOLUME OF CUBE" << std::endl;
+                    std::cout << "Enter side length: ";
+                    std::cin >> firstDouble;
 
-            doubleAnswer = ((firstDouble * secondDouble) / 2) * thirdDouble;
-            printf("The volume of your triangular prism is: %f\n", doubleAnswer);
+                    doubleAnswer = (firstDouble * firstDouble * firstDouble);
+
+                    printf("The volume of the cube is: %f\n", doubleAnswer);
+                    break;
+
+                case 2:
+                    std::cout << "VOLUME OF RECTANGULAR PRISM" << std::endl;
+
+                    std::cout << "Enter base length: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height length: ";
+                    std::cin >> secondDouble;
+
+                    std::cout << "Enter depth length: ";
+                    std::cin >> thirdDouble;
+
+                    doubleAnswer = (firstDouble * secondDouble * thirdDouble);
+                    printf("The volume of your rectangular prism is: %f\n", doubleAnswer);
+                    break;
+
+                case 3:
+                    std::cout << "VOLUME OF TRIANGULAR PRISM" << std::endl;
+                    std::cout << "Enter base length: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height length: ";
+                    std::cin >> secondDouble;
+
+                    std::cout << "Enter depth length: ";
+                    std::cin >> thirdDouble;
+
+                    doubleAnswer = ((firstDouble * secondDouble) / 2) * thirdDouble;
+                    printf("The volume of your triangular prism is: %f\n", doubleAnswer);
+                    break;
+
+                case 4:
+                    std::cout << "VOLUME OF SPHERE" << std::endl;
+                    std::cout << "Enter radius: ";
+                    std::cin >> firstDouble;
+
+                    doubleAnswer = (4/3) * piNum * (firstDouble * firstDouble * firstDouble);
+                    printf("The volume of your sphere is: %f\n", doubleAnswer);
+                    break;
+
+                case 5:
+                    std::cout << "VOLUME OF REGULAR CYLINDER" << std::endl;
+                    std::cout << "Enter radius: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height: ";
+                    std::cin >> secondDouble;
+
+                    doubleAnswer = secondDouble * piNum * (firstDouble * firstDouble);
+                    printf("The volume of your cylinder is: %f\n", doubleAnswer);
+                    break;
+
+                case 6:
+                    std::cout << "VOLUME OF REGULAR CONE" << std::endl;
+                    std::cout << "Enter radius: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height: ";
+                    std::cin >> secondDouble;
+
+                    doubleAnswer =  (secondDouble * piNum * (firstDouble * firstDouble)) / 3;
+                    printf("The volume of your cylinder is: %f\n", doubleAnswer);
+                    break;
+
+                case 7:
+                    std::cout << "B * H * D" << std::endl;
+                    std::cout << "Enter base length: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height length: ";
+                    std::cin >> secondDouble;
+
+                    std::cout << "Enter depth length: ";
+                    std::cin >> thirdDouble;
+
+                    doubleAnswer = (firstDouble * secondDouble * thirdDouble);
+                    printf("The volume of your prism is: %f\n", doubleAnswer);
+                    break;
+
+                default:
+                    std::cout << "Sorry not a thing yet" << std::endl;
+            }
             break;
 
         case 4:
-            std::cout << "VOLUME OF SPHERE" << std::endl;
-            std::cout << "Enter radius: ";
-            std::cin >> firstDouble;
+            std::cout << "SURFACE AREA" << std::endl;
+            std::cout << "What shape do you want the surface area of?: " << std::endl;
+            std::cout << "[1] Cube" << std::endl;
+            std::cout << "[2] Rectangular Prism" << std::endl;
+            std::cout << "[3] Triangular Prism" << std::endl;
+            std::cout << "[4] Right Pyramid" << std::endl;
+            std::cout << "[5] Right Cylinder" << std::endl;
+            std::cout << "[6] Right Circular Cone" << std::endl;
+            std::cout << "[7] Sphere" << std::endl;
+            std::cout << "[8] Hemisphere" << std::endl;
 
-            doubleAnswer = (4/3) * piNum * (firstDouble * firstDouble * firstDouble);
-            printf("The volume of your sphere is: %f\n", doubleAnswer);
+            std::cin >> subOption;
+
+            switch(subOption)
+            {
+                case 1:
+                    std::cout << "SURFACE AREA OF CUBE" << std::endl;
+
+                    std::cout << "Enter side length: ";
+                    std::cin >> firstDouble;
+
+                    secondDouble = pow(firstDouble, 2);
+                    doubleAnswer = 6 * secondDouble;
+
+                    printf("The surface area of the cube is %f", doubleAnswer);
+                    break;
+
+                case 2:
+                    std::cout << "SURFACE AREA OF RECTANGULAR PRISM" << std::endl;
+
+                    std::cout << "Enter base length: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height length: ";
+                    std::cin >> secondDouble;
+
+                    std::cout << "Enter depth length: ";
+                    std::cin >> thirdDouble;
+
+                    doubleAnswer = 2 * ((firstDouble * secondDouble) + (secondDouble * thirdDouble) + (thirdDouble * firstDouble));
+
+                    printf("The surface area of the rectangular prism is %f", doubleAnswer);
+                    break;
+
+                case 3:
+                    std::cout << "SURFACE AREA OF TRIANGULAR PRISM" << std::endl;
+
+                    std::cout << "Enter triangle base: ";
+                    std::cin >> triangleBase;
+
+                    std::cout << "Enter triangle height: ";
+                    std::cin >> triangleHeight;
+
+                    std::cout << "Enter first side length: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter second side length: ";
+                    std::cin >> secondDouble;
+
+                    std::cout << "Enter length/depth: ";
+                    std::cin >> thirdDouble;
+
+                    triangleArea = triangleBase * triangleHeight;
+
+                    doubleAnswer = triangleArea + ((firstDouble + secondDouble + triangleBase) * thirdDouble);
+
+                    printf("The surface area of the triangular prism is %f", doubleAnswer);
+                    break;
+
+                case 4:
+                    std::cout << "SURFACE AREA OF RIGHT PYRAMID" << std::endl;
+
+                    std::cout << "Enter base length: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter base width: ";
+                    std::cin >> secondDouble;
+
+                    std::cout << "Enter triangle base: ";
+                    std::cin >> triangleBase;
+
+                    std::cout << "Enter triangle height: ";
+                    std::cin >> triangleHeight;
+
+                    triangleArea = 2 * (triangleBase * triangleHeight);
+
+                    doubleAnswer = (firstDouble * secondDouble) * triangleArea;
+
+                    printf("The surface area of the right pyramid is %f", doubleAnswer);
+                    break;
+
+                case 5:
+                    std::cout << "SURFACE AREA OF CYLINDER" << std::endl;
+
+                    std::cout << "Enter radius: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height: ";
+                    std::cin >> secondDouble;
+
+                    baseArea = 2 * piNum * firstDouble * secondDouble;
+
+                    doubleAnswer = baseArea + (2 * piNum * (firstDouble * firstDouble));
+
+                    printf("The surface area of the cylinder is %f", doubleAnswer);
+                    break;
+
+                case 6:
+                    std::cout << "SURFACE AREA OF CONE" << std::endl;
+
+                    std::cout << "Enter radius: ";
+                    std::cin >> firstDouble;
+
+                    std::cout << "Enter height: ";
+                    std::cin >> secondDouble;
+
+                    baseArea = firstDouble + sqrt((secondDouble * secondDouble) + (firstDouble * firstDouble));
+
+
+                    doubleAnswer = piNum * firstDouble * baseArea;
+
+                    printf("The surface area of the cone is %f", doubleAnswer);
+                    break;
+
+                case 7:
+                    std::cout << "SURFACE AREA OF A SPHERE" << std::endl;
+
+                    std::cout << "Enter radius: ";
+                    std::cin >> firstDouble;
+
+                    doubleAnswer = 4 * piNum * pow(firstDouble, 2);
+
+                    printf("The surface area of the sphere is %f", doubleAnswer);
+                    break;
+
+                case 8:
+                    std::cout << "SURFACE AREA OF A HEMISPHERE" << std::endl;
+
+                    std::cout << "Enter radius: ";
+                    std::cin >> firstDouble;
+
+                    doubleAnswer = 3 * piNum * pow(firstDouble, 2);
+
+                    printf("The surface area of the hemisphere is %f", doubleAnswer);
+                    break;
+
+                default:
+                    std::cout << "Sorry, not an option yet" << std::endl;
+            }
             break;
 
         case 5:
-            std::cout << "VOLUME OF REGULAR CYLINDER" << std::endl;
+            std::cout << "CIRCUMFERENCE OF A CIRCLE" << std::endl;
             std::cout << "Enter radius: ";
             std::cin >> firstDouble;
 
-            std::cout << "Enter height: ";
-            std::cin >> secondDouble;
-
-            doubleAnswer = secondDouble * piNum * (firstDouble * firstDouble);
-            printf("The volume of your cylinder is: %f\n", doubleAnswer);
+            doubleAnswer = 2 * firstDouble * piNum;
+            printf("The circumference of the circle is: %f\n", doubleAnswer);
             break;
 
         case 6:
-            std::cout << "VOLUME OF REGULAR CONE" << std::endl;
-            std::cout << "Enter radius: ";
+            std::cout << "HYPOTENUSE" << std::endl;
+            std::cout << "Enter a: ";
             std::cin >> firstDouble;
-
-            std::cout << "Enter height: ";
+            std::cout << "Enter b: ";
             std::cin >> secondDouble;
-
-            doubleAnswer =  (secondDouble * piNum * (firstDouble * firstDouble)) / 3;
-            printf("The volume of your cylinder is: %f\n", doubleAnswer);
+            doubleAnswer = hypot(firstDouble, secondDouble);
+            printf("C is %f", doubleAnswer);
             break;
 
         case 7:
-            std::cout << "B * H * D" << std::endl;
-            std::cout << "Enter base length: ";
+            std::cout << "TANGENT" << std::endl;
+            std::cout << "Enter number: ";
             std::cin >> firstDouble;
-
-            std::cout << "Enter height length: ";
-            std::cin >> secondDouble;
-
-            std::cout << "Enter depth length: ";
-            std::cin >> thirdDouble;
-
-            doubleAnswer = (firstDouble * secondDouble * thirdDouble);
-            printf("The volume of your prism is: %f\n", doubleAnswer);
-            break;
-
-        default:
-            std::cout << "Sorry not a thing yet" << std::endl;
-        }
-        break;
-
-    case 4:
-        std::cout << "SURFACE AREA" << std::endl;
-        std::cout << "What shape do you want the surface area of?: " << std::endl;
-        std::cout << "[1] Cube" << std::endl;
-        std::cout << "[2] Rectangular Prism" << std::endl;
-        std::cout << "[3] Triangular Prism" << std::endl;
-        std::cout << "[4] Right Pyramid" << std::endl;
-        std::cout << "[5] Right Cylinder" << std::endl;
-        std::cout << "[6] Right Circular Cone" << std::endl;
-        std::cout << "[7] Sphere" << std::endl;
-        std::cout << "[8] Hemisphere" << std::endl;
-
-        std::cin >> subOption;
-
-        switch(subOption)
-        {
-        case 1:
-            std::cout << "SURFACE AREA OF CUBE" << std::endl;
-
-            std::cout << "Enter side length: ";
-            std::cin >> firstDouble;
-
-            secondDouble = pow(firstDouble, 2);
-            doubleAnswer = 6 * secondDouble;
-
-            printf("The surface area of the cube is %f", doubleAnswer);
-            break;
-
-        case 2:
-            std::cout << "SURFACE AREA OF RECTANGULAR PRISM" << std::endl;
-
-            std::cout << "Enter base length: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter height length: ";
-            std::cin >> secondDouble;
-
-            std::cout << "Enter depth length: ";
-            std::cin >> thirdDouble;
-
-            doubleAnswer = 2 * ((firstDouble * secondDouble) + (secondDouble * thirdDouble) + (thirdDouble * firstDouble));
-
-            printf("The surface area of the rectangular prism is %f", doubleAnswer);
-            break;
-
-        case 3:
-            std::cout << "SURFACE AREA OF TRIANGULAR PRISM" << std::endl;
-
-            std::cout << "Enter triangle base: ";
-            std::cin >> triangleBase;
-
-            std::cout << "Enter triangle height: ";
-            std::cin >> triangleHeight;
-
-            std::cout << "Enter first side length: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter second side length: ";
-            std::cin >> secondDouble;
-
-            std::cout << "Enter length/depth: ";
-            std::cin >> thirdDouble;
-
-            triangleArea = triangleBase * triangleHeight;
-
-            doubleAnswer = triangleArea + ((firstDouble + secondDouble + triangleBase) * thirdDouble);
-
-            printf("The surface area of the triangular prism is %f", doubleAnswer);
-            break;
-
-        case 4:
-            std::cout << "SURFACE AREA OF RIGHT PYRAMID" << std::endl;
-
-            std::cout << "Enter base length: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter base width: ";
-            std::cin >> secondDouble;
-
-            std::cout << "Enter triangle base: ";
-            std::cin >> triangleBase;
-
-            std::cout << "Enter triangle height: ";
-            std::cin >> triangleHeight;
-
-            triangleArea = 2 * (triangleBase * triangleHeight);
-
-            doubleAnswer = (firstDouble * secondDouble) * triangleArea;
-
-            printf("The surface area of the right pyramid is %f", doubleAnswer);
-            break;
-
-        case 5:
-            std::cout << "SURFACE AREA OF CYLINDER" << std::endl;
-
-            std::cout << "Enter radius: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter height: ";
-            std::cin >> secondDouble;
-
-            baseArea = 2 * piNum * firstDouble * secondDouble;
-
-            doubleAnswer = baseArea + (2 * piNum * (firstDouble * firstDouble));
-
-            printf("The surface area of the cylinder is %f", doubleAnswer);
-            break;
-
-        case 6:
-            std::cout << "SURFACE AREA OF CONE" << std::endl;
-
-            std::cout << "Enter radius: ";
-            std::cin >> firstDouble;
-
-            std::cout << "Enter height: ";
-            std::cin >> secondDouble;
-
-            baseArea = firstDouble + sqrt((secondDouble * secondDouble) + (firstDouble * firstDouble));
-
-
-            doubleAnswer = piNum * firstDouble * baseArea;
-
-            printf("The surface area of the cone is %f", doubleAnswer);
-                break;
-
-        case 7:
-            std::cout << "SURFACE AREA OF A SPHERE" << std::endl;
-
-            std::cout << "Enter radius: ";
-            std::cin >> firstDouble;
-
-            doubleAnswer = 4 * piNum * pow(firstDouble, 2);
-
-            printf("The surface area of the sphere is %f", doubleAnswer);
+            doubleAnswer = tan(firstDouble);
+            printf("The tangent of %f is %f", firstDouble, doubleAnswer);
             break;
 
         case 8:
-            std::cout << "SURFACE AREA OF A HEMISPHERE" << std::endl;
-
-            std::cout << "Enter radius: ";
+            std::cout << "COSINE" << std::endl;
+            std::cout << "Enter number: ";
             std::cin >> firstDouble;
+            doubleAnswer = cos(firstDouble);
+            printf("The cosine of %f is %f", firstDouble, doubleAnswer);
+            break;
 
-            doubleAnswer = 3 * piNum * pow(firstDouble, 2);
-
-            printf("The surface area of the hemisphere is %f", doubleAnswer);
+        case 9:
+            std::cout << "SINE" << std::endl;
+            std::cout << "Enter number: ";
+            std::cin >> firstDouble;
+            doubleAnswer = sin(firstDouble);
+            printf("The sine of %f is %f", firstDouble, doubleAnswer);
             break;
 
         default:
-            std::cout << "Sorry, not an option yet" << std::endl;
-        }
-        break;
-
-    case 5:
-        std::cout << "CIRCUMFERENCE OF A CIRCLE" << std::endl;
-        std::cout << "Enter radius: ";
-        std::cin >> firstDouble;
-
-        doubleAnswer = 2 * firstDouble * piNum;
-        printf("The circumference of the circle is: %f\n", firstDouble);
-        break;
-
-    case 6:
-        std::cout << "HYPOTENUSE" << std::endl;
-        std::cout << "Enter a: ";
-        std::cin >> firstDouble;
-        std::cout << "Enter b: ";
-        std::cin >> secondDouble;
-        doubleAnswer = hypot(firstDouble, secondDouble);
-        printf("C is %f", doubleAnswer);
-        break;
-
-    case 7:
-        std::cout << "TANGENT" << std::endl;
-        std::cout << "Enter number: ";
-        std::cin >> firstDouble;
-        doubleAnswer = tan(firstDouble);
-        printf("The tangent of %f is %f", firstDouble, doubleAnswer);
-        break;
-
-    case 8:
-        std::cout << "COSINE" << std::endl;
-        std::cout << "Enter number: ";
-        std::cin >> firstDouble;
-        doubleAnswer = cos(firstDouble);
-        printf("The cosine of %f is %f", firstDouble, doubleAnswer);
-        break;
-
-    case 9:
-        std::cout << "SINE" << std::endl;
-        std::cout << "Enter number: ";
-        std::cin >> firstDouble;
-        doubleAnswer = sin(firstDouble);
-        printf("The sine of %f is %f", firstDouble, doubleAnswer);
-        break;
-
-    default:
-        std::cout << std::endl << "Error: input error" << std::endl;
+            std::cout << std::endl << "Error: input error" << std::endl;
     }
 }
 
@@ -1097,51 +1095,51 @@ void powersFunc()
 
     switch(optionChose)
     {
-    case 1:
-        printf("POWER OF \n");
-        std::cout << "Enter first number: ";
-        std::cin >> firstInt;
-        std::cout << "Enter second numer: ";
-        std::cin >> secondInt;
+        case 1:
+            printf("POWER OF \n");
+            std::cout << "Enter first number: ";
+            std::cin >> firstInt;
+            std::cout << "Enter second number: ";
+            std::cin >> secondInt;
 
-        intAnswer = pow(firstInt, secondInt);
-        printf("Your answer is %d", intAnswer);
-        break;
+            intAnswer = pow(firstInt, secondInt);
+            printf("Your answer is %d", intAnswer);
+            break;
 
-    case 2:
-        printf("SQUARE OF\n");
-        std::cout << "Enter number: ";
-        std::cin >> firstInt;
+        case 2:
+            printf("SQUARE OF\n");
+            std::cout << "Enter number: ";
+            std::cin >> firstInt;
 
-        intAnswer = pow(firstInt, 2);
-        printf("Your answer is %d", intAnswer);
-        break;
+            intAnswer = pow(firstInt, 2);
+            printf("Your answer is %d", intAnswer);
+            break;
 
-    case 3:
-        printf("SQUARE ROOT OF \n");
-        std::cout << "Enter number: ";
-        std::cin >> firstDouble;
+        case 3:
+            printf("SQUARE ROOT OF \n");
+            std::cout << "Enter number: ";
+            std::cin >> firstDouble;
 
-        doubleAnswer = sqrt(firstDouble);
-        printf("Your answer is %f", doubleAnswer);
-        break;
+            doubleAnswer = sqrt(firstDouble);
+            printf("Your answer is %f", doubleAnswer);
+            break;
 
-    case 4:
-        printf("SIMPLIFY SQUARE ROOT \n");
-        simpleRad();
-        break;
+        case 4:
+            printf("SIMPLIFY SQUARE ROOT \n");
+            simpleRad();
+            break;
 
-    case 5:
-        printf("CUBE OF\n");
-        std::cout << "Enter number: ";
-        std::cin >> firstInt;
+        case 5:
+            printf("CUBE OF\n");
+            std::cout << "Enter number: ";
+            std::cin >> firstInt;
 
-        intAnswer = pow(firstInt, 3);
-        printf("Your answer is %d", intAnswer);
-        break;
+            intAnswer = pow(firstInt, 3);
+            printf("Your answer is %d", intAnswer);
+            break;
 
-    default:
-        std::cout << "Not an option yet, sorry" << std::endl;
+        default:
+            std::cout << "Not an option yet, sorry" << std::endl;
     }
 }
 
@@ -1305,7 +1303,7 @@ void gcfClass::getGCF()
             gcfNumTwo = gcfNumTwo - gcfNumOne;
         }
     }
-    
+
 }
 
 double gcfClass::returnGCF()
@@ -1323,7 +1321,7 @@ void solvePolyFactors()
 
     if(perfectYes == "yes" || perfectYes == "Yes" || perfectYes == "y" || perfectYes == "Y" || perfectYes == "YES")
     {
-        double a, b, c, answer;
+        double b, answer;
 
         std::cout << "Enter b (ax^2 + bx + c): ";
         std::cin >> b;
@@ -1338,38 +1336,32 @@ void solvePolyFactors()
         std::cout << "NOT PERFECT" << std::endl;
         std::cout << "What would you like to do?: " << std::endl;
         std::cout << "[1] Factor ax^2 + bx + c" << std::endl;
+        std::cout << "[2] Factor sdf" << std::endl;
 
-        double a, b, c;
-        double halfBNum;
-        double StepTwo, preAnswerSqrt;
-        double addedOne, addedTwo;
-        double answer;
-        double sideOne, sideTwo;
+        std::cin >> subOption;
 
-        std::cout << "Enter a (ax^2 + bx + c): ";
-        std::cin >> a;
+        if(subOption == 1)
+        {
+            double a, b, c;
 
-        std::cout << "Enter b (ax^2 + bx + c): ";
-        std::cin >> b;
+            std::cout << "Enter a (ax^2 + bx + c): ";
+            std::cin >> a;
 
-        std::cout << "Enter c (ax^2 + bx + c): ";
-        std::cin >> c;
+            std::cout << "Enter b (ax^2 + bx + c): ";
+            std::cin >> b;
 
-        halfBNum = b / 2;
-        StepTwo = abs((a * c) - pow(halfBNum, 2));
-        preAnswerSqrt = sqrt(StepTwo);
-
-        addedOne = halfBNum - preAnswerSqrt;
-        addedTwo = halfBNum + preAnswerSqrt;
-
-        gcfClass gcfObjOne(a, addedOne);
-
-        gcfClass gcfObjTwo(c, addedTwo);
+            std::cout << "Enter c (ax^2 + bx + c): ";
+            std::cin >> c;
 
 
-        double termOneA = gcfObjOne.returnGCF() / sideOne;
-        double termTwoA = gcfObjTwo.returnGCF() / sideOne;
+        }
+        else if(subOption == 2)
+        {
 
-        std::cout << gcfObjOne.returnGCF() << std::endl;
+        }
+        else
+        {
+            std::cout << "Sorry not an option" << std::endl;
+        }
     }
 }
