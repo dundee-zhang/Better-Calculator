@@ -1,13 +1,14 @@
 #include <iostream>
 #include <cmath>
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include <cstdlib>
+#define YEAR 2021
 
 class factorialClass
 {
 public:
-    factorialClass(double num);
+    explicit factorialClass(double num);
     double calculateFactorial();
 
 private:
@@ -19,7 +20,7 @@ class gcfClass
 public:
     gcfClass(double x, double y);
     void getGCF();
-    double returnGCF();
+    [[nodiscard]] double returnGCF() const;
 
 private:
     double gcfNumOne, gcfNumTwo;
@@ -82,7 +83,7 @@ int main()
 
         case 727:
             std::cout << "COMING SOON" << std::endl;
-            std::cout << "- Factoring Polynomials and stuff" << std::endl;
+            std::cout << "- Probably somethings like random number gen" << std::endl;
             std::cout << "- Whatever stuff I need" << std::endl;
             break;
 
@@ -238,7 +239,7 @@ void basicSolve()
 void otherFunc()
 {
     double dx, dy;
-    int ix, count;
+    int year, answerInt, count;
     int x = 0;
     double danswer = 0.0, average;
     int option;
@@ -254,6 +255,7 @@ void otherFunc()
     std::cout << "[7] Find LCM of" << std::endl;
     std::cout << "[8] Average of" << std::endl;
     std::cout << "[9] Tax calculation" << std::endl;
+    std::cout << "[10] Age of Thing" << std::endl;
 
     std::cin >> option;
 
@@ -334,6 +336,15 @@ void otherFunc()
             taxFunction();
             break;
 
+        case 10:
+            std::cout << "What is the starting year?: ";
+            std::cin >> year;
+
+            answerInt = YEAR - year;
+
+            printf("It is/They are %i years old\n", answerInt);
+            break;
+
         default:
             std::cout << std::endl << "Error: input error" << std::endl;
     }
@@ -386,13 +397,14 @@ void listofFunc()
     std::cout << "<!-- OTHER/UNORGANIZED YET --!>" << std::endl;
     std::cout << "[1] Smaller Number" << std::endl;
     std::cout << "[2] Larger Number" << std::endl;
-    std::cout << "[4] Remainder of" << std::endl;
-    std::cout << "[5] Round the Number" << std::endl;
-    std::cout << "[6] Is Number Prime?" << std::endl;
-    std::cout << "[8] Find GCF/GCD of" << std::endl;
-    std::cout << "[9] Find LCM of" << std::endl;
-    std::cout << "[10] Find Average of" << std::endl;
-    std::cout << "[11] Tax calculation" << std::endl;
+    std::cout << "[3] Remainder of" << std::endl;
+    std::cout << "[4] Round the Number" << std::endl;
+    std::cout << "[5] Is Number Prime?" << std::endl;
+    std::cout << "[6] Find GCF/GCD of" << std::endl;
+    std::cout << "[7] Find LCM of" << std::endl;
+    std::cout << "[8] Find Average of" << std::endl;
+    std::cout << "[9] Tax calculation" << std::endl;
+    std::cout << "[10] Age of" << std::endl;
 
     std::cout << std::endl;
 
@@ -400,7 +412,10 @@ void listofFunc()
 
 void primeNumber()
 {
-    int n, i, m = 0, flag = 0;
+    int n;
+    int i;
+    int m;
+    int flag = 0;
 
     std::cout << "Enter number: ";
     std::cin >> n;
@@ -522,7 +537,7 @@ void geometryFunc()
     double firstDouble, secondDouble, thirdDouble, doubleAnswer = 0.0, baseArea;
     int optionChose, subOption;
     double triangleBase, triangleHeight, triangleArea;
-    std::string stringVar = "";
+    std::string stringVar;
     double piNum = 3.1415926535;
 
     std::cout << "GEOMETRY/ANGLES OPTIONS:" << std::endl;
@@ -1283,7 +1298,7 @@ void gcfClass::getGCF()
 
 }
 
-double gcfClass::returnGCF()
+double gcfClass::returnGCF() const
 {
     return gcfNumOne;
 }
@@ -1305,7 +1320,7 @@ void solveFactors()
     }
     else if(optionDo == 2)
     {
-        int ix, iy;
+        int ix;
         printf("PRIME FACTOR \n");
         std::cout << "Enter Number: ";
         std::cin >> ix;
