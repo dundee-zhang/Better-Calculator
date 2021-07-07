@@ -1352,7 +1352,7 @@ void solveFactors()
             std::cout << "NOT PERFECT" << std::endl;
             std::cout << "What would you like to do?: " << std::endl;
             std::cout << "[1] Factor ax^2 + bx + c" << std::endl;
-            std::cout << "[1] Factor ax^2 - bx + c" << std::endl;
+            std::cout << "[2] Factor ax^2 - bx + c" << std::endl;
 
 
             std::cin >> subOption;
@@ -1418,8 +1418,8 @@ void solveFactors()
                 double absStepThree = abs(stepThree);
                 double stepSqrt = sqrt(absStepThree);
 
-                double termBOne = halfB + stepSqrt;
-                double termBTwo = halfB - stepSqrt;
+                double termBOne = (halfB) + stepSqrt;
+                double termBTwo = (halfB) - stepSqrt;
 
                 gcfClass SideOneObj(a, termBOne);
                 SideOneObj.getGCF();
