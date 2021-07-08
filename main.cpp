@@ -256,7 +256,7 @@ void otherFunc()
     std::cout << "[7] Find LCM of" << std::endl;
     std::cout << "[8] Average of" << std::endl;
     std::cout << "[9] Tax calculation" << std::endl;
-    std::cout << "[10] Age of Thing" << std::endl;
+    std::cout << "[10] Age of" << std::endl;
     std::cout << "[0] Exit" << std::endl;
 
     std::cin >> option;
