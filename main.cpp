@@ -5,6 +5,7 @@
 #include <cstdlib>
 
 #define YEAR 2021
+#define CREDITNAME "Dundee Zhang"
 
 class factorialClass
 {
@@ -52,6 +53,7 @@ int main()
     std::cout << "[5] Factoring" << std::endl;
     std::cout << "[6] Other Functions" << std::endl;
     std::cout << "[0] List of What I Can Do" << std::endl;
+    std::cout << "[127] Credits" << std::endl;
     std::cout << "[727] Coming Soon" << std::endl;
 
     std::cin >> option;
@@ -87,6 +89,9 @@ int main()
             std::cout << "- Probably somethings like random number gen" << std::endl;
             std::cout << "- Whatever stuff I need" << std::endl;
             break;
+
+        case 127:
+            std::cout << "(2021) Created by: " << CREDITNAME << std::endl
 
         case 0:
             listofFunc();
