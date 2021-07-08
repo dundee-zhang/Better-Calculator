@@ -51,8 +51,8 @@ int main()
     std::cout << "[4] Factorials and Related" << std::endl;
     std::cout << "[5] Factoring" << std::endl;
     std::cout << "[6] Other Functions" << std::endl;
-    std::cout << "[727] Coming Soon" << std::endl;
     std::cout << "[0] List of What I Can Do" << std::endl;
+    std::cout << "[727] Coming Soon" << std::endl;
 
     std::cin >> option;
 
@@ -257,6 +257,7 @@ void otherFunc()
     std::cout << "[8] Average of" << std::endl;
     std::cout << "[9] Tax calculation" << std::endl;
     std::cout << "[10] Age of Thing" << std::endl;
+    std::cout << "[0] Exit" << std::endl;
 
     std::cin >> option;
 
@@ -346,6 +347,10 @@ void otherFunc()
             printf("It is/They are %i years old\n", answerInt);
             break;
 
+        case 0:
+            std::cout << "Goodbye!" << std::endl;
+            break;
+
         default:
             std::cout << std::endl << "Error: input error" << std::endl;
     }
@@ -356,6 +361,7 @@ void listofFunc()
 {
     std::cout << std::endl;
     std::cout << "<!-- START OF LIST --!>" << std::endl;
+    std::cout << "[0] Exit" << std::endl;
     std::cout << std::endl;
     std::cout << "<!-- BASIC --!>" << std::endl;
     std::cout << "[1] Add" << std::endl;
@@ -551,6 +557,7 @@ void geometryFunc()
     std::cout << "[7] Find Tangent of" << std::endl;
     std::cout << "[8] Find Cosine of" << std::endl;
     std::cout << "[9] Find Sine of" << std::endl;
+    std::cout << "[0] Exit" << std::endl;
 
     std::cin >> optionChose;
 
@@ -565,6 +572,7 @@ void geometryFunc()
             std::cout << "[4] Circle" << std::endl;
             std::cout << "[5] Trapezoid" << std::endl;
             std::cout << "[6] Parallelogram" << std::endl;
+			std::cout << "[0] Exit" << std::endl;
 
             std::cin >> subOption;
 
@@ -652,6 +660,10 @@ void geometryFunc()
 
                     printf("The area of your parallelogram is: %f\n", doubleAnswer);
                     break;
+					
+				case 0:
+					std::cout << "Goodbye!" << std::endl;
+					break;
 
                 default:
                     std::cout << "Not an option yet, sorry" << std::endl;
@@ -755,6 +767,10 @@ void geometryFunc()
                     }
                     break;
 
+                case 0:
+                    std::cout << "Goodbye!" << std::endl;
+                    break;
+
                 default:
                     std::cout << "Sorry not a thing yet" << std::endl;
             }
@@ -770,6 +786,7 @@ void geometryFunc()
             std::cout << "[5] Regular Cylinder" << std::endl;
             std::cout << "[6] Regular Cone" << std::endl;
             std::cout << "[7] B * H * D" << std::endl;
+            std::cout << "[0] Exit" << std::endl;
 
             std::cin >> subOption;
 
@@ -864,6 +881,10 @@ void geometryFunc()
                     printf("The volume of your prism is: %f\n", doubleAnswer);
                     break;
 
+                case 0:
+                    std::cout << "Goodbye!" << std::endl;
+                    break;
+
                 default:
                     std::cout << "Sorry not a thing yet" << std::endl;
             }
@@ -880,6 +901,7 @@ void geometryFunc()
             std::cout << "[6] Right Circular Cone" << std::endl;
             std::cout << "[7] Sphere" << std::endl;
             std::cout << "[8] Hemisphere" << std::endl;
+            std::cout << "[0] Exit" << std::endl;
 
             std::cin >> subOption;
 
@@ -1016,6 +1038,10 @@ void geometryFunc()
                     printf("The surface area of the hemisphere is %f", doubleAnswer);
                     break;
 
+                case 0:
+                    std::cout << "Goodbye!" << std::endl;
+                    break;
+
                 default:
                     std::cout << "Sorry, not an option yet" << std::endl;
             }
@@ -1064,6 +1090,10 @@ void geometryFunc()
             printf("The sine of %f is %f", firstDouble, doubleAnswer);
             break;
 
+        case 0:
+            std::cout << "Goodbye!" << std::endl;
+            break;
+
         default:
             std::cout << std::endl << "Error: input error" << std::endl;
     }
@@ -1083,6 +1113,7 @@ void powersFunc()
     std::cout << "[3] Square Root of" << std::endl;
     std::cout << "[4] Simplify Square Root of" << std::endl;
     std::cout << "[5] Cube of" << std::endl;
+	std::cout << "[0] Exit" << std::endl;
 
     std::cin >> optionChose;
 
@@ -1130,6 +1161,10 @@ void powersFunc()
             intAnswer = pow(firstInt, 3);
             printf("Your answer is %d", intAnswer);
             break;
+		
+		case 0:
+			std::cout << "Goodbye!" << std::endl;
+			break;
 
         default:
             std::cout << "Not an option yet, sorry" << std::endl;
@@ -1161,6 +1196,7 @@ void factorialsFunc()
     std::cout << "[1] Factorial of (Up to 9 for now): " << std::endl;
     std::cout << "[2] Number of Paths in a grid going 2 directions: " << std::endl;
     std::cout << "[3] Choose Notation: " << std::endl;
+    std::cout << "[0] Exit" << std::endl;
 
     std::cin >> choseOption;
 
@@ -1216,6 +1252,10 @@ void factorialsFunc()
 
         std::cout << "The answer of " << factorialNum1 << "C" << factorialNum2 << " is: " << cNotationAnswer << std::endl;
     }
+    else if(choseOption == 0)
+    {
+        std::cout << "Goodbye!" << std::endl;
+    }
     else
     {
         std::cout << "Not an option yet, sorry" << std::endl;
@@ -1234,7 +1274,7 @@ void taxFunction()
     std::cout << "What would you like to do?: " << std::endl;
     std::cout << "[1] Ontario Tax" << std::endl;
     std::cout << "[2] Custom Amount" << std::endl;
-    std::cout << "[0] End" << std::endl;
+    std::cout << "[0] Exit" << std::endl;
 
     std::cin >> optionChose;
 
@@ -1269,6 +1309,10 @@ void taxFunction()
         afterTaxTotal = taxMulti * moneyAmount;
 
         std::cout << "Your total after tax is: " << afterTaxTotal << std::endl;
+    }
+    else if(optionChose == 0)
+    {
+        std::cout << "Goodbye!" << std::endl;
     }
     else
     {
@@ -1369,7 +1413,7 @@ void solveFactors()
             std::cout << "What would you like to do?: " << std::endl;
             std::cout << "[1] Factor ax^2 + bx + c" << std::endl;
             std::cout << "[2] Factor ax^2 - bx + c" << std::endl;
-
+            std::cout << "[0] Exit" << std::endl;
 
             std::cin >> subOption;
 
@@ -1453,6 +1497,10 @@ void solveFactors()
                 std::cout << "(" << gcfSideOne << "x" << "-" << gcfSideTwo << ")";
                 std::cout << std::endl;
             }
+            else if(subOption == 0)
+            {
+                std::cout << "Goodbye!" << std::endl;
+            }
             else
             {
                 std::cout << "Sorry not an option" << std::endl;
@@ -1461,7 +1509,7 @@ void solveFactors()
     }
     else if(optionDo == 0)
     {
-        std::cout << std::endl;
+        std::cout << "Goodbye!" << std::endl;
     }
     else
     {
