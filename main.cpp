@@ -665,7 +665,7 @@ void geometryFunc()
 
                     printf("The area of your parallelogram is: %f\n", doubleAnswer);
                     break;
-					
+
 				case 0:
 					std::cout << "Goodbye!" << std::endl;
 					break;
@@ -1166,7 +1166,7 @@ void powersFunc()
             intAnswer = pow(firstInt, 3);
             printf("Your answer is %d", intAnswer);
             break;
-		
+
 		case 0:
 			std::cout << "Goodbye!" << std::endl;
 			break;
