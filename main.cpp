@@ -1396,7 +1396,7 @@ void solveFactors()
     {
         std::string perfectYes;
 
-        std::cout << "FACTORING POLYNOMIALS" << std::endl;
+        std::cout << "FACTORING TRINOMIALS" << std::endl;
         std::cout << "Is is perfect?: ";
         std::cin >> perfectYes;
 
