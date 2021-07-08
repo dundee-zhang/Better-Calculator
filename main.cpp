@@ -92,6 +92,7 @@ int main()
 
         case 127:
             std::cout << "(2021) Created by: " << CREDITNAME << std::endl;
+            break;
 
         case 0:
             listofFunc();
