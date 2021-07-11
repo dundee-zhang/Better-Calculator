@@ -41,7 +41,7 @@ void powersFunc();
 void factorialsFunc();
 void taxFunction();
 void solveFactors();
-void solveQuadraticEq()
+void solveQuadraticEq();
 
 int main()
 {
