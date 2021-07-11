@@ -41,6 +41,7 @@ void powersFunc();
 void factorialsFunc();
 void taxFunction();
 void solveFactors();
+void solveQuadraticEq()
 
 int main()
 {
@@ -406,6 +407,7 @@ void listofFunc()
     std::cout << "[1] All Factors of" << std::endl;
     std::cout << "[2] Prime Factor" << std::endl;
     std::cout << "[3] Factoring Trinomials" << std::endl;
+    std::cout << "[4] Quadratic Equation" << std::endl;
     std::cout << std::endl;
     std::cout << "<!-- OTHER/UNORGANIZED YET --!>" << std::endl;
     std::cout << "[1] Smaller Number" << std::endl;
@@ -1361,6 +1363,7 @@ void solveFactors()
     std::cout << "[1] All Factors of" << std::endl;
     std::cout << "[2] Prime Factor" << std::endl;
     std::cout << "[3] Factoring Trinomials" << std::endl;
+    std::cout << "[4] Quadratic Equation" << std::endl;
     std::cout << "[0] Exit" << std::endl;
 
     std::cin >> optionDo;
@@ -1513,6 +1516,10 @@ void solveFactors()
             }
         }
     }
+    else if(optionDo == 4)
+    {
+        solveQuadraticEq();
+    }
     else if(optionDo == 0)
     {
         std::cout << "Goodbye!" << std::endl;
@@ -1521,4 +1528,30 @@ void solveFactors()
     {
         std::cout << "Not an option" << std::endl;
     }
+}
+
+void solveQuadraticEq()
+{
+    std::cout << "QUADRATIC EQUATION" << std::endl;
+    double a, b, c;
+
+    std::cout << "Enter a (ax^2 - bx + c): ";
+    std::cin >> a;
+
+    std::cout << "Enter b (ax^2 - bx + c): ";
+    std::cin >> b;
+
+    std::cout << "Enter c (ax^2 - bx + c): ";
+    std::cin >> c;
+
+
+    double numSqrt = (pow(b, 2)) - (4 * a * c);
+    double finalNumeratorPos = (-1 * b) + numSqrt;
+    double finalNumeratorNeg = (-1 * b) - numSqrt;
+
+    double posDenom = finalNumeratorPos / (2 * a);
+    double negDenom = finalNumeratorNeg / (2 * a);
+
+    std::cout << "Negative is: " << finalNumeratorNeg << std::endl;
+    std::cout << "Positive is: " << finalNumeratorPos << std::endl;
 }
