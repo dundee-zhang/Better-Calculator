@@ -1552,6 +1552,6 @@ void solveQuadraticEq()
     double posDenom = finalNumeratorPos / (2 * a);
     double negDenom = finalNumeratorNeg / (2 * a);
 
-    std::cout << "Negative is: " << finalNumeratorNeg << std::endl;
-    std::cout << "Positive is: " << finalNumeratorPos << std::endl;
+    std::cout << "Negative is: " << negDenom << std::endl;
+    std::cout << "Positive is: " << posDenom << std::endl;
 }
