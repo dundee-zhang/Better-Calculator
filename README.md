@@ -6,4 +6,8 @@ Build using C++17
 
 Can build by using terminal on Mac by running ```make main```
 
-To run after building, run ```./main```
+To run after building, run ```cd bin```
+
+then run ```./main```
+ 
+or just run ```./bin/main```
